@@ -17,7 +17,7 @@
   "license": "ISC",
   "homepage": "https://github.com/desco-npm/urano",
   "dependencies": {
-    "@desco/vue-flip": "file:../vue-flip",
+    "@desco/vue-flip": "^1.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
