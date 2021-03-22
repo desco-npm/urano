@@ -1,0 +1,148 @@
+@import "~@/appProfile/theme.scss";
+
+.max-height {
+  height: 100%;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.el-button {
+  &.full {
+    width: 100%;
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.primary {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $primary;
+    }
+  }
+  
+  &.secondary {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $secondary;
+    }
+  }
+  
+  &.accent {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $accent;
+    }
+  }
+  
+  &.positive {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $positive;
+    }
+  }
+  
+  &.negative {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $negative;
+    }
+  }
+  
+  &.info {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $info;
+    }
+  }
+  
+  &.warning {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $warning;
+    }
+  }
+  
+  &.black {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $black;
+    }
+  }
+  
+  &.white {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $white;
+    }
+  }
+
+  svg {
+    margin-right: .5rem;
+  }
+}
+
+.text-primary {
+  color: $primary;
+  color: $white;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-accent {
+  color: $accent;
+}
+
+.text-positive {
+  color: $positive;
+}
+
+.text-negative {
+  color: $negative;
+}
+
+.text-info {
+  color: $info;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-black {
+  color: $black;
+}
+
+.text-white {
+  color: $white;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.el-select {
+  width: 100%;
+}
