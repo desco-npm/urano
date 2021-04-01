@@ -47,10 +47,13 @@ export default {
     go ({ name, }) {
       if (name === this.$route.name) return
 
-      if (this.$route.meta.newTab) {
-        const route = this.$router.resolve(this.getRoute(name))
+      const route = this.getRoute(name)
 
-        window.open(route.href, '_blank');
+      if (route.meta.newTab) {
+        window.open(this.$router.resolve(route).href, '_blank')
+      }
+      else if (route.meta.public) {
+        window.open(route.path, '_blank')
       }
       else {
         this.$router.push({ name, })
