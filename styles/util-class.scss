@@ -1,36 +1,36 @@
 @import "~@/appProfile/theme.scss";
 
 .max-height {
-  height: 100%;
+  height: 100% !important;
 }
 
 .align-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .align-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .align-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .el-button,
 .el-tag {
   &.full {
-    width: 100%;
+    width: 100% !important;
   }
 
   &.uppercase {
-    text-transform: uppercase;
+    text-transform: uppercase !important;
   }
 
   &.primary {
     &,
     &:hover,
     &:focus {
-      background-color: $primary;
+      background-color: $primary !important;
     }
   }
   
@@ -38,7 +38,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $secondary;
+      background-color: $secondary !important;
     }
   }
   
@@ -46,7 +46,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $accent;
+      background-color: $accent !important;
     }
   }
   
@@ -54,7 +54,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $positive;
+      background-color: $positive !important;
     }
   }
   
@@ -62,7 +62,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $negative;
+      background-color: $negative !important;
     }
   }
   
@@ -70,7 +70,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $info;
+      background-color: $info !important;
     }
   }
   
@@ -78,7 +78,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $warning;
+      background-color: $warning !important;
     }
   }
   
@@ -86,7 +86,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $black;
+      background-color: $black !important;
     }
   }
   
@@ -94,7 +94,7 @@
     &,
     &:hover,
     &:focus {
-      background-color: $white;
+      background-color: $white !important;
     }
   }
 
