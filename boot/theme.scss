@@ -6,7 +6,10 @@ $--color-warning: $warning !default;
 $--color-danger: $negative !default;
 $--color-info: $info !default;
 
-
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
 @import "~element-ui/lib/theme-chalk/display.css";
+
+.el-select {
+  width: 100%;
+}

@@ -1,0 +1,79 @@
+.bg-primary {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $primary !important;
+  }
+}
+
+.bg-secondary {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $secondary !important;
+  }
+}
+
+.bg-accent {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $accent !important;
+  }
+}
+
+.bg-positive {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $positive !important;
+  }
+}
+
+.bg-negative {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $negative !important;
+  }
+}
+
+.bg-info {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $info !important;
+  }
+}
+
+.bg-warning {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $warning !important;
+  }
+}
+
+.bg-black {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $black !important;
+  }
+}
+
+.bg-white {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $white !important;
+  }
+}
+
+.bg-dark {
+  &,
+  &:hover,
+  &:focus {
+    background-color: $dark !important;
+  }
+}

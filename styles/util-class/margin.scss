@@ -1,0 +1,15 @@
+@for $i from 1 through 5 {
+  .margin-#{$i * 10} {
+    margin: $i * 10 + px;
+  }
+
+  .margin-hub-#{$i * 10} {
+    margin-top: $i * 10 + px;
+    margin-bottom: $i * 10 + px;
+  }
+
+  .margin-side-#{$i * 10} {
+    margin-left: $i * 10 + px;
+    margin-right: $i * 10 + px;
+  }
+}

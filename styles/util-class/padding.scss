@@ -1,0 +1,15 @@
+@for $i from 1 through 5 {
+  .padding-#{$i * 10} {
+    padding: $i * 10 + px;
+  }
+
+  .padding-hub-#{$i * 10} {
+    padding-top: $i * 10 + px;
+    padding-bottom: $i * 10 + px;
+  }
+
+  .padding-side-#{$i * 10} {
+    padding-left: $i * 10 + px;
+    padding-right: $i * 10 + px;
+  }
+}

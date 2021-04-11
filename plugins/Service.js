@@ -1,6 +1,6 @@
 import Http from '@desco/urano/plugins/Http'
-import isObject from '@desco/urano/functions/isObject'
-import isArray from '@desco/urano/functions/isArray'
+import objectMap from '@desco/urano/functions/objectMap'
+import objectFilter from '@desco/urano/functions/objectFilter'
 
 class DefaultService {
   constructor (params = {}) {
@@ -48,6 +48,20 @@ class DefaultService {
     const url = `${this.entity}/Delete`
 
     return Http.post(url, { data: { Id: id, }, })
+  }
+
+  model () {
+    console.error(`@desco/urano: Model not defined for the ${this.entity} service`)
+
+    return {}
+  }
+
+  validatorRules() {
+    const validRules = [ 'required', 'minLength', 'maxLength', 'email', 'sameAs' ]
+
+    return objectMap(this.model(), field => {
+      return objectFilter(field, (value, key) => validRules.indexOf(key) !== -1)
+    })
   }
 }
 
