@@ -34,5 +34,10 @@
     "percent-value": "^1.0.9",
     "vue-resize": "^1.0.0",
     "vuelidate": "^0.7.6"
+  },
+  "engines": {
+    "node": ">= 10.18.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
   }
 }

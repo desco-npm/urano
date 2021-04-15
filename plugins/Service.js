@@ -5,6 +5,7 @@ import objectFilter from '@desco/urano/functions/objectFilter'
 class DefaultService {
   constructor (params = {}) {
     this.entity = params.entity || this.constructor.name
+    this.endpoint = params.endpoint || 'CRUD/'
   }
 
   Http () {
@@ -12,40 +13,40 @@ class DefaultService {
   }
 
   read (id) {
-    const url = `CRUD/${this.entity}/?Id=${id}`
+    const url = `${this.endpoint}${this.entity}/?Id=${id}`
 
     return Http.get(url).then(resp => resp.data)
   }
 
   list (params = {}) {
-    const url = `CRUD/${this.entity}`
+    const url = `${this.endpoint}${this.entity}`
 
     return Http.get(url, { params, }).then(resp => resp.data)
   }
 
-  save (data) {
+  save (data, params) {
     if (data.id) {
-      return this.update(data)
+      return this.update(data, params)
     }
     else {
-      return this.create(data)
+      return this.create(data, params)
     }
   }
 
-  update (data) {
-    const url = `CRUD/${this.entity}`
+  update (data, params = {}) {
+    const url = `${this.endpoint}${this.entity}`
 
-    return Http.put(url, data).then(resp => resp.data)
+    return Http.put(url, this.clean(data, params.clean)).then(resp => resp.data)
   }
 
-  create (data) {
-    const url = `CRUD/${this.entity}`
+  create (data, params = {}) {
+    const url = `${this.endpoint}${this.entity}`
 
-    return Http.post(url, data).then(resp => resp.data)
+    return Http.post(url, this.clean(data, params.clean)).then(resp => resp.data)
   }
 
   delete (id) {
-    const url = `${this.entity}/Delete`
+    const url = `${this.endpoint}${this.entity}/Delete`
 
     return Http.post(url, { data: { Id: id, }, })
   }
@@ -54,6 +55,12 @@ class DefaultService {
     console.error(`@desco/urano: Model not defined for the ${this.entity} service`)
 
     return {}
+  }
+
+  clean(data, list) {
+    if (!list) return data
+
+    return objectFilter(data, (v, k) => list.indexOf(k) === -1)
   }
 
   validatorRules() {

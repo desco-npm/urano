@@ -2,7 +2,7 @@ import RouteMixin from './route'
 import ModuleMixin from './module'
 
 export default {
-  mixins: [ RouteMixin, ModuleMixin ],
+  mixins: [RouteMixin, ModuleMixin],
   computed: {
     App () {
       return this.$route.meta.appMenu ? this.$route : {}
