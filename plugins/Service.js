@@ -5,6 +5,7 @@ import objectFilter from '@desco/urano/functions/objectFilter'
 class DefaultService {
   constructor (params = {}) {
     this.entity = params.entity || this.constructor.name
+    this.pkName = params.pkName || 'id'
   }
 
   Http () {
@@ -23,8 +24,8 @@ class DefaultService {
     return Http.get(url, { params, }).then(resp => resp.data)
   }
 
-  save (data, params) {
-    if (data.id) {
+  save (data, params = {}) {
+    if (data[this.pkName]) {
       return this.update(data, params)
     }
     else {
@@ -33,15 +34,15 @@ class DefaultService {
   }
 
   update (data, params = {}) {
-    const url = `CRUD/${this.entity}`
+    const url = `CRUD/${this.entity}/${data[this.pkName]}`
 
-    return Http.put(url, this.clean(data, params.clean)).then(resp => resp.data)
+    return Http.put(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
   }
 
   create (data, params = {}) {
     const url = `CRUD/${this.entity}`
 
-    return Http.post(url, this.clean(data, params.clean)).then(resp => resp.data)
+    return Http.post(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
   }
 
   delete (id) {
