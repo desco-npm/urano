@@ -12,7 +12,7 @@ class DefaultService {
   }
 
   read (id) {
-    const url = `CRUD/${this.entity}/?Id=${id}`
+    const url = `CRUD/${this.entity}/${id}`
 
     return Http.get(url).then(resp => resp.data)
   }
