@@ -69,10 +69,6 @@ class DefaultService {
       return objectFilter(field, (value, key) => validRules.indexOf(key) !== -1)
     })
   }
-
-  translateEnum (field, value) {
-    return this.model()[field].options[value]
-  }
 }
 
 export default DefaultService

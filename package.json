@@ -29,6 +29,7 @@
     "gmap-vue": "^1.5.0",
     "is-array": "^1.0.1",
     "is-object": "^1.0.2",
+    "moment": "^2.29.1",
     "object-filter": "^1.0.2",
     "object.map": "^1.0.1",
     "percent-value": "^1.0.9",
