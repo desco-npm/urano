@@ -11,10 +11,10 @@ class DefaultService {
     return Http
   }
 
-  read (id) {
+  read (id, params = {}) {
     const url = `CRUD/${this.entity}/${id}`
 
-    return Http.get(url).then(resp => resp.data)
+    return Http.get(url, { params, }).then(resp => resp.data)
   }
 
   list (params = {}) {
