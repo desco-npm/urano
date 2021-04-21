@@ -1,9 +1,12 @@
 export default {
   computed: {
-    pageName () {
+    pageName() {
       return this.$route.name
     },
-    pageTitle () {
+    pageHumanName() {
+      return this.$route.meta.name
+    },
+    pageTitle() {
       return this.$route.meta.title
     },
   },
