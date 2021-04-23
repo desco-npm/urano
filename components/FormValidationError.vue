@@ -3,7 +3,7 @@ div
   span(v-if="show && field.$dirty && field.required === false").
     Campo obrigatório
   span(v-if="show && field.$dirty && field.maxLength === false").
-    Campo deve ter menos de {{ field.$params.maxLength }} caracteres
+    Campo deve ter menos de {{ field.$params.maxLength.max }} caracteres
   span(v-if="show && field.$dirty && field.minLength === false").
     Campo deve ao menos {{ field.$params.minLength.min }} caracteres
   span(v-if="show && field.$dirty && field.email === false").
@@ -41,5 +41,6 @@ export default {
 <style lang="scss" scoped>
 span {
   color: $negative;
+  display: block;
 }
 </style>
