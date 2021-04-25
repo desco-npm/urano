@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-card.four_lines_bordered_color(:style="cardStyle()")
+  el-card.four_lines_bordered_color(:style="cardStyle()" :shadow="shadow")
     el-row
       el-col.line1(:span="24" v-if="$scopedSlots.line1")
         slot(name="line1")
@@ -18,6 +18,7 @@ export default {
     borderColor: { type: String, default: 'black', },
     borderWidth: { type: String, default: '6px', },
     borderStyle: { type: String, default: 'solid', },
+    shadow: { type: String, default: 'always', },
   },
   methods: {
     cardStyle () {
