@@ -13,13 +13,13 @@ class DefaultService {
   }
 
   read (id, params = {}) {
-    const url = `CRUD/${this.entity}/${id}`
+    const url = `${this.entity}/${id}`
 
     return Http.get(url, { params, }).then(resp => resp.data)
   }
 
   list (params = {}) {
-    const url = `CRUD/${this.entity}`
+    const url = `${this.entity}`
 
     return Http.get(url, { params, }).then(resp => resp.data)
   }
@@ -34,19 +34,19 @@ class DefaultService {
   }
 
   update (data, params = {}) {
-    const url = `CRUD/${this.entity}/${data[this.pkName]}`
+    const url = `${this.entity}/${data[this.pkName]}`
 
     return Http.put(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
   }
 
   create (data, params = {}) {
-    const url = `CRUD/${this.entity}`
+    const url = `${this.entity}`
 
     return Http.post(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
   }
 
   delete (id) {
-    const url = `CRUD/${this.entity}/Delete`
+    const url = `${this.entity}/Delete`
 
     return Http.post(url, { data: { Id: id, }, })
   }
