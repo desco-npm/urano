@@ -7,8 +7,8 @@ export default {
 
         try {
           navigator.camera.getPicture(success, error, {
-            ...options,
             destinationType: navigator.camera.DestinationType.DATA_URL,
+            ...options,
           })
         }
         catch (e) {
