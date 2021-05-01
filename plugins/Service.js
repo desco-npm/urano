@@ -3,8 +3,12 @@ import objectMap from '@desco/urano/functions/objectMap'
 import objectFilter from '@desco/urano/functions/objectFilter'
 
 class DefaultService {
-  constructor (params = {}) {
-    this.entity = params.entity || this.constructor.name
+  constructor(params = {}) {
+    if (!params.entity) {
+      console.error(`@desco/urano: Entity Model not defined for the service`)
+    }
+
+    this.entity = params.entity
     this.pkName = params.pkName || 'id'
   }
 
