@@ -29,7 +29,37 @@ export default {
 
       this.screen.height = screen.height
       this.screen.width = screen.width
-    }
+
+      this.screen.larger = this.larger()
+    },
+    larger () {
+      let larger
+
+      if (this.screen.xs) {
+        larger = 'xs'
+      }
+
+      if (this.screen.sm) {
+        larger = 'sm'
+      }
+
+      if (this.screen.md) {
+        larger = 'md'
+      }
+
+      if (this.screen.lg) {
+        larger = 'lg'
+      }
+
+      if (this.screen.xl) {
+        larger = 'xl'
+      }
+
+      return larger
+    },
+    caseScreen(cases) {
+      return cases[this.screen.larger]
+    },
   },
   watch: {
     '$q.screen': {
