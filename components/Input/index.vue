@@ -11,6 +11,12 @@
     v-model="data",
     :placeholder="attrs.placeholder"
   )
+  el-input(
+    v-if="element === 'email'",
+    type="email",
+    v-model="data",
+    :placeholder="attrs.placeholder"
+  )
   form-validation-error(:v="v", :name="name", :service="service")
 </template>
 
@@ -48,6 +54,8 @@ export default {
           return "text";
         case "password":
           return "password";
+        case "email":
+          return "email";
       }
     },
   },
