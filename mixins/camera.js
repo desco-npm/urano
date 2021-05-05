@@ -8,6 +8,7 @@ export default {
         try {
           navigator.camera.getPicture(success, error, {
             destinationType: navigator.camera.DestinationType.DATA_URL,
+            correctOrientation: true,
             ...options,
           })
         }
