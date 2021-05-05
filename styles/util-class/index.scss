@@ -23,11 +23,16 @@
   text-align: right !important;
 }
 
+.align-justify {
+  text-align: justify !important;
+}
+
+.full {
+  width: 100% !important;
+}
+
 .el-button,
 .el-tag {
-  &.full {
-    width: 100% !important;
-  }
 
   &.uppercase {
     text-transform: uppercase !important;
