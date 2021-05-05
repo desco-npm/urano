@@ -9,7 +9,7 @@ export default class Formatter {
     return this.service.model()[field].options[value]
   }
 
-  dateBr (value) {
-    return moment.format('DD/MM/YYYY')
+  dateBr(value) {
+    return moment(value).format('DD/MM/YYYY')
   }
 }
