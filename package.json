@@ -1,6 +1,6 @@
 {
   "name": "@desco/urano",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Structure and tools for rapid development with QuasarJS",
   "main": "index.js",
   "repository": {
@@ -17,7 +17,6 @@
   "license": "ISC",
   "homepage": "https://github.com/desco-npm/urano",
   "dependencies": {
-    "@desco/file-base-64": "^1.1.3",
     "@desco/vue-flip": "^1.0.0",
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",

@@ -35,25 +35,12 @@
     :min-height="attrs.minHeight || '15rem'"
     :placeholder="attrs.placeholder"
   )
-  q-file(
-    v-if="element === 'upload'"
-    filled
-    v-model="data"
-    :label="attrs.placeholder"
-    @input="fileToBase64"
-  )
-    template(v-slot:prepend)
-      q-icon(name="attach_file")
-    template(v-slot:file="{ index, file }")
-      | ola mundo
   form-validation-error(:v="v" :name="name", :service="service")
 </template>
 
 <script>
 import ModelWatchMixin from "@desco/urano/mixins/watch/model";
 import FormValidationError from "@desco/urano/components/FormValidationError";
-
-import fileBase64 from '@desco/file-base-64'
 
 export default {
   name: "UranoInput",
@@ -96,13 +83,6 @@ export default {
       }
     },
   },
-  methods: {
-    fileToBase64 () {
-      fileBase64(this.data).then(_base64 => {
-        console.log(_base64)
-      })
-    }
-  }
 };
 </script>
 
