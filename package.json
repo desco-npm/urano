@@ -1,6 +1,6 @@
 {
   "name": "@desco/urano",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Structure and tools for rapid development with QuasarJS",
   "main": "index.js",
   "repository": {

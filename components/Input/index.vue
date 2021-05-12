@@ -53,7 +53,7 @@
 import ModelWatchMixin from "@desco/urano/mixins/watch/model";
 import FormValidationError from "@desco/urano/components/FormValidationError";
 
-import fileBase64 from '@desco/file-base64'
+import fileBase64 from '@desco/file-base-64'
 
 export default {
   name: "UranoInput",
