@@ -29,6 +29,7 @@
     type="date"
     v-model="data"
     :placeholder="attrs.placeholder"
+    :format="attrs.format || 'dd/MM/yyyy'"
   )
   q-editor(
     v-if="element === 'texteditor'"
