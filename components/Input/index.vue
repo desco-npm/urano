@@ -22,6 +22,7 @@
     type="textarea"
     v-model="data"
     :placeholder="attrs.placeholder"
+    :rows="attrs.rows"
   )
   el-date-picker(
     v-if="element === 'date'"
