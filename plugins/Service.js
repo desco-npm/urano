@@ -50,9 +50,9 @@ class DefaultService {
   }
 
   delete (id) {
-    const url = `${this.entity}/Delete`
+    const url = `${this.entity}/${id}`
 
-    return Http.post(url, { data: { Id: id, }, })
+    return Http.delete(url)
   }
 
   model () {
