@@ -5,11 +5,10 @@
       v-model="data"
       :placeholder="attrs.placeholder"
     )
-    el-input(
+    Password(
       v-if="element === 'password'"
-      type="password"
       v-model="data"
-      :placeholder="attrs.placeholder"
+      :params="attrs"
     )
     el-input(
       v-if="element === 'email'"
@@ -49,11 +48,12 @@ import ModelWatchMixin from "@desco/urano/mixins/watch/model"
 import FormValidationError from "@desco/urano/components/FormValidationError"
 
 import ImageUpload from '@desco/urano/components/Input/ImageUpload'
+import Password from '@desco/urano/components/Input/Password'
 
 export default {
   name: "UranoInput",
   mixins: [ ModelWatchMixin, ],
-  components: { FormValidationError, ImageUpload, },
+  components: { FormValidationError, ImageUpload, Password, },
   props: {
     value: String | Number | Object | Array | Boolean,
     service: Object,
