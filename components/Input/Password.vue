@@ -36,11 +36,6 @@ export default {
       this.show = !this.show
     },
   },
-  mounted () {
-    this.$refs.password.$el.querySelector('.el-input__suffix').addEventListener('click', () => {
-      alert('pl')
-    })
-  }
 };
 </script>
 
