@@ -38,3 +38,165 @@
 .text-dark {
   color: $dark;
 }
+
+@for $i from 1 through 19 {
+  .text-primary-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($primaryLighten, $i * 5);
+    }
+  }
+
+  .text-primary-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($primaryDarken, $i * 5);
+    }
+  }
+  
+  .text-secondary-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($secondaryLighten, $i * 5);
+    }
+  }
+
+  .text-secondary-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($secondaryDarken, $i * 5);
+    }
+  }
+  
+  .text-accent-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($accentLighten, $i * 5);
+    }
+  }
+
+  .text-accent-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($accentDarken, $i * 5);
+    }
+  }
+  
+  .text-positive-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($positiveLighten, $i * 5);
+    }
+  }
+
+  .text-positive-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($positiveDarken, $i * 5);
+    }
+  }
+  
+  .text-negative-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($negativeLighten, $i * 5);
+    }
+  }
+
+  .text-negative-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($negativeDarken, $i * 5);
+    }
+  }
+  
+  .text-info-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($infoLighten, $i * 5);
+    }
+  }
+
+  .text-info-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($infoDarken, $i * 5);
+    }
+  }
+  
+  .text-warning-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($warningLighten, $i * 5);
+    }
+  }
+
+  .text-warning-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($warningDarken, $i * 5);
+    }
+  }
+  
+  .text-black-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($blackLighten, $i * 5);
+    }
+  }
+
+  .text-black-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($blackDarken, $i * 5);
+    }
+  }
+  
+  .text-white-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($whiteLighten, $i * 5);
+    }
+  }
+
+  .text-white-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($whiteDarken, $i * 5);
+    }
+  }
+  
+  .text-dark-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($darkLighten, $i * 5);
+    }
+  }
+
+  .text-dark-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      color: map-get($darkDarken, $i * 5);
+    }
+  }
+}

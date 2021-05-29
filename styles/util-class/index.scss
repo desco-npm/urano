@@ -1,56 +1,22 @@
 @import "~@/appProfile/theme";
 
+@import "../range-colors";
 @import "./bg";
 @import "./text";
 @import "./border";
 @import "./padding";
 @import "./margin";
 @import "./flex";
-
-.max-height {
-  height: 100% !important;
-}
-
-.align-left {
-  text-align: left !important;
-}
-
-.align-center {
-  text-align: center !important;
-}
-
-.align-right {
-  text-align: right !important;
-}
-
-.align-justify {
-  text-align: justify !important;
-}
-
-.full {
-  width: 100% !important;
-}
-
-.v-full {
-  height: 100% !important;
-}
+@import "./display";
+@import "./size";
+@import "./align";
+@import "./case";
+@import "./cursor";
+@import "./decoration";
 
 .el-button,
 .el-tag {
-
-  &.uppercase {
-    text-transform: uppercase !important;
-  }
-
   svg {
     margin-right: .5rem;
   }
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.not-text-decoration {
-  text-decoration: none;
 }

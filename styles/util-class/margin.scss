@@ -1,15 +1,31 @@
-@for $i from 1 through 5 {
-  .margin-#{$i * 10} {
-    margin: $i * 10 + px;
+@for $i from 1 through 100 {
+  .margin-#{$i} {
+    margin: $i + px;
   }
 
-  .margin-hub-#{$i * 10} {
-    margin-top: $i * 10 + px;
-    margin-bottom: $i * 10 + px;
+  .margin-top-bottom-#{$i} {
+    margin-top: $i + px;
+    margin-bottom: $i + px;
   }
 
-  .margin-side-#{$i * 10} {
-    margin-left: $i * 10 + px;
-    margin-right: $i * 10 + px;
+  .margin-left-right-#{$i} {
+    margin-left: $i + px;
+    margin-right: $i + px;
+  }
+
+  .margin-top-#{$i} {
+    margin-top: $i + px;
+  }
+
+  .margin-bottom-#{$i} {
+    margin-bottom: $i + px;
+  }
+
+  .margin-left-#{$i} {
+    margin-left: $i + px;
+  }
+
+  .margin-right-#{$i} {
+    margin-right: $i + px;
   }
 }

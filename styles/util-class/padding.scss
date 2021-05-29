@@ -1,15 +1,31 @@
-@for $i from 1 through 5 {
-  .padding-#{$i * 10} {
-    padding: $i * 10 + px;
+@for $i from 1 through 100 {
+  .padding-#{$i} {
+    padding: $i + px;
   }
 
-  .padding-hub-#{$i * 10} {
-    padding-top: $i * 10 + px;
-    padding-bottom: $i * 10 + px;
+  .padding-top-bottom-#{$i} {
+    padding-top: $i + px;
+    padding-bottom: $i + px;
   }
 
-  .padding-side-#{$i * 10} {
-    padding-left: $i * 10 + px;
-    padding-right: $i * 10 + px;
+  .padding-left-right-#{$i} {
+    padding-left: $i + px;
+    padding-right: $i + px;
+  }
+
+  .padding-top-#{$i} {
+    padding-top: $i + px;
+  }
+
+  .padding-bottom-#{$i} {
+    padding-bottom: $i + px;
+  }
+
+  .padding-left-#{$i} {
+    padding-left: $i + px;
+  }
+
+  .padding-right-#{$i} {
+    padding-right: $i + px;
   }
 }

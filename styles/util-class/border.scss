@@ -37,3 +37,165 @@
 .border-dark {
   border: 1px solid $dark;
 }
+
+@for $i from 1 through 19 {
+  .border-primary-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: 1px solid map-get($primaryLighten, $i * 5);
+    }
+  }
+
+  .border-primary-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($primaryDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-secondary-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($secondaryLighten, $i * 5) !important;
+    }
+  }
+
+  .border-secondary-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($secondaryDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-accent-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($accentLighten, $i * 5) !important;
+    }
+  }
+
+  .border-accent-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($accentDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-positive-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($positiveLighten, $i * 5) !important;
+    }
+  }
+
+  .border-positive-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($positiveDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-negative-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($negativeLighten, $i * 5) !important;
+    }
+  }
+
+  .border-negative-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($negativeDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-info-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($infoLighten, $i * 5) !important;
+    }
+  }
+
+  .border-info-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($infoDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-warning-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($warningLighten, $i * 5) !important;
+    }
+  }
+
+  .border-warning-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($warningDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-black-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($blackLighten, $i * 5) !important;
+    }
+  }
+
+  .border-black-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($blackDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-white-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($whiteLighten, $i * 5) !important;
+    }
+  }
+
+  .border-white-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($whiteDarken, $i * 5) !important;
+    }
+  }
+  
+  .border-dark-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($darkLighten, $i * 5) !important;
+    }
+  }
+
+  .border-dark-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      border-color: map-get($darkDarken, $i * 5) !important;
+    }
+  }
+}

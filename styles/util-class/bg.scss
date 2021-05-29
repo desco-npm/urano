@@ -77,3 +77,165 @@
     background-color: $dark !important;
   }
 }
+
+@for $i from 1 through 19 {
+  .bg-primary-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($primaryLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-primary-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($primaryDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-secondary-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($secondaryLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-secondary-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($secondaryDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-accent-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($accentLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-accent-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($accentDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-positive-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($positiveLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-positive-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($positiveDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-negative-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($negativeLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-negative-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($negativeDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-info-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($infoLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-info-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($infoDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-warning-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($warningLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-warning-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($warningDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-black-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($blackLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-black-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($blackDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-white-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($whiteLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-white-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($whiteDarken, $i * 5) !important;
+    }
+  }
+  
+  .bg-dark-lighten-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($darkLighten, $i * 5) !important;
+    }
+  }
+
+  .bg-dark-darken-#{$i * 5} {
+    &,
+    &:hover,
+    &:focus {
+      background-color: map-get($darkDarken, $i * 5) !important;
+    }
+  }
+}

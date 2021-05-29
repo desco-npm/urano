@@ -1,5 +1,6 @@
 <template lang="pug">
   .ur-input
+    |{{data}}
     el-input(
       v-if="element === 'string'"
       v-model="data"

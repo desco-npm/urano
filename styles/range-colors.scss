@@ -1,399 +1,439 @@
-$primaryLighten1: lighten($primary, 5%);
-$primaryLighten2: lighten($primary, 10%);
-$primaryLighten3: lighten($primary, 15%);
-$primaryLighten4: lighten($primary, 20%);
-$primaryLighten5: lighten($primary, 25%);
-$primaryLighten6: lighten($primary, 30%);
-$primaryLighten7: lighten($primary, 35%);
-$primaryLighten8: lighten($primary, 40%);
-$primaryLighten9: lighten($primary, 45%);
-$primaryLighten10: lighten($primary, 50%);
-$primaryLighten11: lighten($primary, 55%);
-$primaryLighten12: lighten($primary, 60%);
-$primaryLighten13: lighten($primary, 65%);
-$primaryLighten14: lighten($primary, 70%);
-$primaryLighten15: lighten($primary, 75%);
-$primaryLighten16: lighten($primary, 80%);
-$primaryLighten17: lighten($primary, 85%);
-$primaryLighten18: lighten($primary, 90%);
-$primaryLighten19: lighten($primary, 95%);
+$primaryLighten: (
+    5: lighten($primary, 5%),
+    10: lighten($primary, 10%),
+    15: lighten($primary, 15%),
+    20: lighten($primary, 20%),
+    25: lighten($primary, 25%),
+    30: lighten($primary, 30%),
+    35: lighten($primary, 35%),
+    40: lighten($primary, 40%),
+    45: lighten($primary, 45%),
+    50: lighten($primary, 50%),
+    55: lighten($primary, 55%),
+    60: lighten($primary, 60%),
+    65: lighten($primary, 65%),
+    70: lighten($primary, 70%),
+    75: lighten($primary, 75%),
+    80: lighten($primary, 80%),
+    85: lighten($primary, 85%),
+    90: lighten($primary, 90%),
+    95: lighten($primary, 95%)
+);
 
-$primaryDarken1: darken($primary, 5%);
-$primaryDarken2: darken($primary, 10%);
-$primaryDarken3: darken($primary, 15%);
-$primaryDarken4: darken($primary, 20%);
-$primaryDarken5: darken($primary, 25%);
-$primaryDarken6: darken($primary, 30%);
-$primaryDarken7: darken($primary, 35%);
-$primaryDarken8: darken($primary, 40%);
-$primaryDarken9: darken($primary, 45%);
-$primaryDarken10: darken($primary, 50%);
-$primaryDarken11: darken($primary, 55%);
-$primaryDarken12: darken($primary, 60%);
-$primaryDarken13: darken($primary, 65%);
-$primaryDarken14: darken($primary, 70%);
-$primaryDarken15: darken($primary, 75%);
-$primaryDarken16: darken($primary, 80%);
-$primaryDarken17: darken($primary, 85%);
-$primaryDarken18: darken($primary, 90%);
-$primaryDarken19: darken($primary, 95%);
+$primaryDarken: (
+    5: darken($primary, 5%),
+    10: darken($primary, 10%),
+    15: darken($primary, 15%),
+    20: darken($primary, 20%),
+    25: darken($primary, 25%),
+    30: darken($primary, 30%),
+    35: darken($primary, 35%),
+    40: darken($primary, 40%),
+    45: darken($primary, 45%),
+    50: darken($primary, 50%),
+    55: darken($primary, 55%),
+    60: darken($primary, 60%),
+    65: darken($primary, 65%),
+    70: darken($primary, 70%),
+    75: darken($primary, 75%),
+    80: darken($primary, 80%),
+    85: darken($primary, 85%),
+    90: darken($primary, 90%),
+    95: darken($primary, 95%)
+);
 
-$secondaryLighten1: lighten($secondary, 5%);
-$secondaryLighten2: lighten($secondary, 10%);
-$secondaryLighten3: lighten($secondary, 15%);
-$secondaryLighten4: lighten($secondary, 20%);
-$secondaryLighten5: lighten($secondary, 25%);
-$secondaryLighten6: lighten($secondary, 30%);
-$secondaryLighten7: lighten($secondary, 35%);
-$secondaryLighten8: lighten($secondary, 40%);
-$secondaryLighten9: lighten($secondary, 45%);
-$secondaryLighten10: lighten($secondary, 50%);
-$secondaryLighten11: lighten($secondary, 55%);
-$secondaryLighten12: lighten($secondary, 60%);
-$secondaryLighten13: lighten($secondary, 65%);
-$secondaryLighten14: lighten($secondary, 70%);
-$secondaryLighten15: lighten($secondary, 75%);
-$secondaryLighten16: lighten($secondary, 80%);
-$secondaryLighten17: lighten($secondary, 85%);
-$secondaryLighten18: lighten($secondary, 90%);
-$secondaryLighten19: lighten($secondary, 95%);
+$secondaryLighten: (
+    5: lighten($secondary, 5%),
+    10: lighten($secondary, 10%),
+    15: lighten($secondary, 15%),
+    20: lighten($secondary, 20%),
+    25: lighten($secondary, 25%),
+    30: lighten($secondary, 30%),
+    35: lighten($secondary, 35%),
+    40: lighten($secondary, 40%),
+    45: lighten($secondary, 45%),
+    50: lighten($secondary, 50%),
+    55: lighten($secondary, 55%),
+    60: lighten($secondary, 60%),
+    65: lighten($secondary, 65%),
+    70: lighten($secondary, 70%),
+    75: lighten($secondary, 75%),
+    80: lighten($secondary, 80%),
+    85: lighten($secondary, 85%),
+    90: lighten($secondary, 90%),
+    95: lighten($secondary, 95%)
+);
 
-$secondaryDarken1: darken($secondary, 5%);
-$secondaryDarken2: darken($secondary, 10%);
-$secondaryDarken3: darken($secondary, 15%);
-$secondaryDarken4: darken($secondary, 20%);
-$secondaryDarken5: darken($secondary, 25%);
-$secondaryDarken6: darken($secondary, 30%);
-$secondaryDarken7: darken($secondary, 35%);
-$secondaryDarken8: darken($secondary, 40%);
-$secondaryDarken9: darken($secondary, 45%);
-$secondaryDarken10: darken($secondary, 50%);
-$secondaryDarken11: darken($secondary, 55%);
-$secondaryDarken12: darken($secondary, 60%);
-$secondaryDarken13: darken($secondary, 65%);
-$secondaryDarken14: darken($secondary, 70%);
-$secondaryDarken15: darken($secondary, 75%);
-$secondaryDarken16: darken($secondary, 80%);
-$secondaryDarken17: darken($secondary, 85%);
-$secondaryDarken18: darken($secondary, 90%);
-$secondaryDarken19: darken($secondary, 95%);
+$secondaryDarken: (
+    5: darken($secondary, 5%),
+    10: darken($secondary, 10%),
+    15: darken($secondary, 15%),
+    20: darken($secondary, 20%),
+    25: darken($secondary, 25%),
+    30: darken($secondary, 30%),
+    35: darken($secondary, 35%),
+    40: darken($secondary, 40%),
+    45: darken($secondary, 45%),
+    50: darken($secondary, 50%),
+    55: darken($secondary, 55%),
+    60: darken($secondary, 60%),
+    65: darken($secondary, 65%),
+    70: darken($secondary, 70%),
+    75: darken($secondary, 75%),
+    80: darken($secondary, 80%),
+    85: darken($secondary, 85%),
+    90: darken($secondary, 90%),
+    95: darken($secondary, 95%)
+);
 
-$accentLighten1: lighten($accent, 5%);
-$accentLighten2: lighten($accent, 10%);
-$accentLighten3: lighten($accent, 15%);
-$accentLighten4: lighten($accent, 20%);
-$accentLighten5: lighten($accent, 25%);
-$accentLighten6: lighten($accent, 30%);
-$accentLighten7: lighten($accent, 35%);
-$accentLighten8: lighten($accent, 40%);
-$accentLighten9: lighten($accent, 45%);
-$accentLighten10: lighten($accent, 50%);
-$accentLighten11: lighten($accent, 55%);
-$accentLighten12: lighten($accent, 60%);
-$accentLighten13: lighten($accent, 65%);
-$accentLighten14: lighten($accent, 70%);
-$accentLighten15: lighten($accent, 75%);
-$accentLighten16: lighten($accent, 80%);
-$accentLighten17: lighten($accent, 85%);
-$accentLighten18: lighten($accent, 90%);
-$accentLighten19: lighten($accent, 95%);
+$accentLighten: (
+    5: lighten($accent, 5%),
+    10: lighten($accent, 10%),
+    15: lighten($accent, 15%),
+    20: lighten($accent, 20%),
+    25: lighten($accent, 25%),
+    30: lighten($accent, 30%),
+    35: lighten($accent, 35%),
+    40: lighten($accent, 40%),
+    45: lighten($accent, 45%),
+    50: lighten($accent, 50%),
+    55: lighten($accent, 55%),
+    60: lighten($accent, 60%),
+    65: lighten($accent, 65%),
+    70: lighten($accent, 70%),
+    75: lighten($accent, 75%),
+    80: lighten($accent, 80%),
+    85: lighten($accent, 85%),
+    90: lighten($accent, 90%),
+    95: lighten($accent, 95%)
+);
 
-$accentDarken1: darken($accent, 5%);
-$accentDarken2: darken($accent, 10%);
-$accentDarken3: darken($accent, 15%);
-$accentDarken4: darken($accent, 20%);
-$accentDarken5: darken($accent, 25%);
-$accentDarken6: darken($accent, 30%);
-$accentDarken7: darken($accent, 35%);
-$accentDarken8: darken($accent, 40%);
-$accentDarken9: darken($accent, 45%);
-$accentDarken10: darken($accent, 50%);
-$accentDarken11: darken($accent, 55%);
-$accentDarken12: darken($accent, 60%);
-$accentDarken13: darken($accent, 65%);
-$accentDarken14: darken($accent, 70%);
-$accentDarken15: darken($accent, 75%);
-$accentDarken16: darken($accent, 80%);
-$accentDarken17: darken($accent, 85%);
-$accentDarken18: darken($accent, 90%);
-$accentDarken19: darken($accent, 95%);
+$accentDarken: (
+    5: darken($accent, 5%),
+    10: darken($accent, 10%),
+    15: darken($accent, 15%),
+    20: darken($accent, 20%),
+    25: darken($accent, 25%),
+    30: darken($accent, 30%),
+    35: darken($accent, 35%),
+    40: darken($accent, 40%),
+    45: darken($accent, 45%),
+    50: darken($accent, 50%),
+    55: darken($accent, 55%),
+    60: darken($accent, 60%),
+    65: darken($accent, 65%),
+    70: darken($accent, 70%),
+    75: darken($accent, 75%),
+    80: darken($accent, 80%),
+    85: darken($accent, 85%),
+    90: darken($accent, 90%),
+    95: darken($accent, 95%)
+);
 
-$positiveLighten1: lighten($positive, 5%);
-$positiveLighten2: lighten($positive, 10%);
-$positiveLighten3: lighten($positive, 15%);
-$positiveLighten4: lighten($positive, 20%);
-$positiveLighten5: lighten($positive, 25%);
-$positiveLighten6: lighten($positive, 30%);
-$positiveLighten7: lighten($positive, 35%);
-$positiveLighten8: lighten($positive, 40%);
-$positiveLighten9: lighten($positive, 45%);
-$positiveLighten10: lighten($positive, 50%);
-$positiveLighten11: lighten($positive, 55%);
-$positiveLighten12: lighten($positive, 60%);
-$positiveLighten13: lighten($positive, 65%);
-$positiveLighten14: lighten($positive, 70%);
-$positiveLighten15: lighten($positive, 75%);
-$positiveLighten16: lighten($positive, 80%);
-$positiveLighten17: lighten($positive, 85%);
-$positiveLighten18: lighten($positive, 90%);
-$positiveLighten19: lighten($positive, 95%);
+$positiveLighten: (
+    5: lighten($positive, 5%),
+    10: lighten($positive, 10%),
+    15: lighten($positive, 15%),
+    20: lighten($positive, 20%),
+    25: lighten($positive, 25%),
+    30: lighten($positive, 30%),
+    35: lighten($positive, 35%),
+    40: lighten($positive, 40%),
+    45: lighten($positive, 45%),
+    50: lighten($positive, 50%),
+    55: lighten($positive, 55%),
+    60: lighten($positive, 60%),
+    65: lighten($positive, 65%),
+    70: lighten($positive, 70%),
+    75: lighten($positive, 75%),
+    80: lighten($positive, 80%),
+    85: lighten($positive, 85%),
+    90: lighten($positive, 90%),
+    95: lighten($positive, 95%)
+);
 
-$positiveDarken1: darken($positive, 5%);
-$positiveDarken2: darken($positive, 10%);
-$positiveDarken3: darken($positive, 15%);
-$positiveDarken4: darken($positive, 20%);
-$positiveDarken5: darken($positive, 25%);
-$positiveDarken6: darken($positive, 30%);
-$positiveDarken7: darken($positive, 35%);
-$positiveDarken8: darken($positive, 40%);
-$positiveDarken9: darken($positive, 45%);
-$positiveDarken10: darken($positive, 50%);
-$positiveDarken11: darken($positive, 55%);
-$positiveDarken12: darken($positive, 60%);
-$positiveDarken13: darken($positive, 65%);
-$positiveDarken14: darken($positive, 70%);
-$positiveDarken15: darken($positive, 75%);
-$positiveDarken16: darken($positive, 80%);
-$positiveDarken17: darken($positive, 85%);
-$positiveDarken18: darken($positive, 90%);
-$positiveDarken19: darken($positive, 95%);
+$positiveDarken: (
+    5: darken($positive, 5%),
+    10: darken($positive, 10%),
+    15: darken($positive, 15%),
+    20: darken($positive, 20%),
+    25: darken($positive, 25%),
+    30: darken($positive, 30%),
+    35: darken($positive, 35%),
+    40: darken($positive, 40%),
+    45: darken($positive, 45%),
+    50: darken($positive, 50%),
+    55: darken($positive, 55%),
+    60: darken($positive, 60%),
+    65: darken($positive, 65%),
+    70: darken($positive, 70%),
+    75: darken($positive, 75%),
+    80: darken($positive, 80%),
+    85: darken($positive, 85%),
+    90: darken($positive, 90%),
+    95: darken($positive, 95%)
+);
 
-$negativeLighten1: lighten($negative, 5%);
-$negativeLighten2: lighten($negative, 10%);
-$negativeLighten3: lighten($negative, 15%);
-$negativeLighten4: lighten($negative, 20%);
-$negativeLighten5: lighten($negative, 25%);
-$negativeLighten6: lighten($negative, 30%);
-$negativeLighten7: lighten($negative, 35%);
-$negativeLighten8: lighten($negative, 40%);
-$negativeLighten9: lighten($negative, 45%);
-$negativeLighten10: lighten($negative, 50%);
-$negativeLighten11: lighten($negative, 55%);
-$negativeLighten12: lighten($negative, 60%);
-$negativeLighten13: lighten($negative, 65%);
-$negativeLighten14: lighten($negative, 70%);
-$negativeLighten15: lighten($negative, 75%);
-$negativeLighten16: lighten($negative, 80%);
-$negativeLighten17: lighten($negative, 85%);
-$negativeLighten18: lighten($negative, 90%);
-$negativeLighten19: lighten($negative, 95%);
+$negativeLighten: (
+    5: lighten($negative, 5%),
+    10: lighten($negative, 10%),
+    15: lighten($negative, 15%),
+    20: lighten($negative, 20%),
+    25: lighten($negative, 25%),
+    30: lighten($negative, 30%),
+    35: lighten($negative, 35%),
+    40: lighten($negative, 40%),
+    45: lighten($negative, 45%),
+    50: lighten($negative, 50%),
+    55: lighten($negative, 55%),
+    60: lighten($negative, 60%),
+    65: lighten($negative, 65%),
+    70: lighten($negative, 70%),
+    75: lighten($negative, 75%),
+    80: lighten($negative, 80%),
+    85: lighten($negative, 85%),
+    90: lighten($negative, 90%),
+    95: lighten($negative, 95%)
+);
 
-$negativeDarken1: darken($negative, 5%);
-$negativeDarken2: darken($negative, 10%);
-$positiveDarken3: darken($positive, 15%);
-$negativeDarken4: darken($negative, 20%);
-$negativeDarken5: darken($negative, 25%);
-$negativeDarken6: darken($negative, 30%);
-$negativeDarken7: darken($negative, 35%);
-$negativeDarken8: darken($negative, 40%);
-$negativeDarken9: darken($negative, 45%);
-$negativeDarken10: darken($negative, 50%);
-$negativeDarken11: darken($negative, 55%);
-$negativeDarken12: darken($negative, 60%);
-$negativeDarken13: darken($negative, 65%);
-$negativeDarken14: darken($negative, 70%);
-$negativeDarken15: darken($negative, 75%);
-$negativeDarken16: darken($negative, 80%);
-$negativeDarken17: darken($negative, 85%);
-$negativeDarken18: darken($negative, 90%);
-$negativeDarken19: darken($negative, 95%);
+$negativeDarken: (
+    5: darken($negative, 5%),
+    10: darken($negative, 10%),
+    15: darken($negative, 15%),
+    20: darken($negative, 20%),
+    25: darken($negative, 25%),
+    30: darken($negative, 30%),
+    35: darken($negative, 35%),
+    40: darken($negative, 40%),
+    45: darken($negative, 45%),
+    50: darken($negative, 50%),
+    55: darken($negative, 55%),
+    60: darken($negative, 60%),
+    65: darken($negative, 65%),
+    70: darken($negative, 70%),
+    75: darken($negative, 75%),
+    80: darken($negative, 80%),
+    85: darken($negative, 85%),
+    90: darken($negative, 90%),
+    95: darken($negative, 95%)
+);
 
-$infoLighten1: lighten($info, 5%);
-$infoLighten2: lighten($info, 10%);
-$infoLighten3: lighten($info, 15%);
-$infoLighten4: lighten($info, 20%);
-$infoLighten5: lighten($info, 25%);
-$infoLighten6: lighten($info, 30%);
-$infoLighten7: lighten($info, 35%);
-$infoLighten8: lighten($info, 40%);
-$infoLighten9: lighten($info, 45%);
-$infoLighten10: lighten($info, 50%);
-$infoLighten11: lighten($info, 55%);
-$infoLighten12: lighten($info, 60%);
-$infoLighten13: lighten($info, 65%);
-$infoLighten14: lighten($info, 70%);
-$infoLighten15: lighten($info, 75%);
-$infoLighten16: lighten($info, 80%);
-$infoLighten17: lighten($info, 85%);
-$infoLighten18: lighten($info, 90%);
-$infoLighten19: lighten($info, 95%);
+$infoLighten: (
+    5: lighten($info, 5%),
+    10: lighten($info, 10%),
+    15: lighten($info, 15%),
+    20: lighten($info, 20%),
+    25: lighten($info, 25%),
+    30: lighten($info, 30%),
+    35: lighten($info, 35%),
+    40: lighten($info, 40%),
+    45: lighten($info, 45%),
+    50: lighten($info, 50%),
+    55: lighten($info, 55%),
+    60: lighten($info, 60%),
+    65: lighten($info, 65%),
+    70: lighten($info, 70%),
+    75: lighten($info, 75%),
+    80: lighten($info, 80%),
+    85: lighten($info, 85%),
+    90: lighten($info, 90%),
+    95: lighten($info, 95%)
+);
 
-$infoDarken1: darken($info, 5%);
-$infoDarken2: darken($info, 10%);
-$infoDarken3: darken($info, 15%);
-$infoDarken4: darken($info, 20%);
-$infoDarken5: darken($info, 25%);
-$infoDarken6: darken($info, 30%);
-$infoDarken7: darken($info, 35%);
-$infoDarken8: darken($info, 40%);
-$infoDarken9: darken($info, 45%);
-$infoDarken10: darken($info, 50%);
-$infoDarken11: darken($info, 55%);
-$infoDarken12: darken($info, 60%);
-$infoDarken13: darken($info, 65%);
-$infoDarken14: darken($info, 70%);
-$infoDarken15: darken($info, 75%);
-$infoDarken16: darken($info, 80%);
-$infoDarken17: darken($info, 85%);
-$infoDarken18: darken($info, 90%);
-$infoDarken19: darken($info, 95%);
+$infoDarken: (
+    5: darken($info, 5%),
+    10: darken($info, 10%),
+    15: darken($info, 15%),
+    20: darken($info, 20%),
+    25: darken($info, 25%),
+    30: darken($info, 30%),
+    35: darken($info, 35%),
+    40: darken($info, 40%),
+    45: darken($info, 45%),
+    50: darken($info, 50%),
+    55: darken($info, 55%),
+    60: darken($info, 60%),
+    65: darken($info, 65%),
+    70: darken($info, 70%),
+    75: darken($info, 75%),
+    80: darken($info, 80%),
+    85: darken($info, 85%),
+    90: darken($info, 90%),
+    95: darken($info, 95%)
+);
 
-$warningLighten1: lighten($warning, 5%);
-$warningLighten2: lighten($warning, 10%);
-$warningLighten3: lighten($warning, 15%);
-$warningLighten4: lighten($warning, 20%);
-$warningLighten5: lighten($warning, 25%);
-$warningLighten6: lighten($warning, 30%);
-$warningLighten7: lighten($warning, 35%);
-$warningLighten8: lighten($warning, 40%);
-$warningLighten9: lighten($warning, 45%);
-$warningLighten10: lighten($warning, 50%);
-$warningLighten11: lighten($warning, 55%);
-$warningLighten12: lighten($warning, 60%);
-$warningLighten13: lighten($warning, 65%);
-$warningLighten14: lighten($warning, 70%);
-$warningLighten15: lighten($warning, 75%);
-$warningLighten16: lighten($warning, 80%);
-$warningLighten17: lighten($warning, 85%);
-$warningLighten18: lighten($warning, 90%);
-$warningLighten19: lighten($warning, 95%);
+$warningLighten: (
+    5: lighten($warning, 5%),
+    10: lighten($warning, 10%),
+    15: lighten($warning, 15%),
+    20: lighten($warning, 20%),
+    25: lighten($warning, 25%),
+    30: lighten($warning, 30%),
+    35: lighten($warning, 35%),
+    40: lighten($warning, 40%),
+    45: lighten($warning, 45%),
+    50: lighten($warning, 50%),
+    55: lighten($warning, 55%),
+    60: lighten($warning, 60%),
+    65: lighten($warning, 65%),
+    70: lighten($warning, 70%),
+    75: lighten($warning, 75%),
+    80: lighten($warning, 80%),
+    85: lighten($warning, 85%),
+    90: lighten($warning, 90%),
+    95: lighten($warning, 95%)
+);
 
-$warningDarken1: darken($warning, 5%);
-$warningDarken2: darken($warning, 10%);
-$warningDarken3: darken($warning, 15%);
-$warningDarken4: darken($warning, 20%);
-$warningDarken5: darken($warning, 25%);
-$warningDarken6: darken($warning, 30%);
-$warningDarken7: darken($warning, 35%);
-$warningDarken8: darken($warning, 40%);
-$warningDarken9: darken($warning, 45%);
-$warningDarken10: darken($warning, 50%);
-$warningDarken11: darken($warning, 55%);
-$warningDarken12: darken($warning, 60%);
-$warningDarken13: darken($warning, 65%);
-$warningDarken14: darken($warning, 70%);
-$warningDarken15: darken($warning, 75%);
-$warningDarken16: darken($warning, 80%);
-$warningDarken17: darken($warning, 85%);
-$warningDarken18: darken($warning, 90%);
-$warningDarken19: darken($warning, 95%);
+$warningDarken: (
+    5: darken($warning, 5%),
+    10: darken($warning, 10%),
+    15: darken($warning, 15%),
+    20: darken($warning, 20%),
+    25: darken($warning, 25%),
+    30: darken($warning, 30%),
+    35: darken($warning, 35%),
+    40: darken($warning, 40%),
+    45: darken($warning, 45%),
+    50: darken($warning, 50%),
+    55: darken($warning, 55%),
+    60: darken($warning, 60%),
+    65: darken($warning, 65%),
+    70: darken($warning, 70%),
+    75: darken($warning, 75%),
+    80: darken($warning, 80%),
+    85: darken($warning, 85%),
+    90: darken($warning, 90%),
+    95: darken($warning, 95%)
+);
 
-$darkLighten1: lighten($dark, 5%);
-$darkLighten2: lighten($dark, 10%);
-$darkLighten3: lighten($dark, 15%);
-$darkLighten4: lighten($dark, 20%);
-$darkLighten5: lighten($dark, 25%);
-$darkLighten6: lighten($dark, 30%);
-$darkLighten7: lighten($dark, 35%);
-$darkLighten8: lighten($dark, 40%);
-$darkLighten9: lighten($dark, 45%);
-$darkLighten10: lighten($dark, 50%);
-$darkLighten11: lighten($dark, 55%);
-$darkLighten12: lighten($dark, 60%);
-$darkLighten13: lighten($dark, 65%);
-$darkLighten14: lighten($dark, 70%);
-$darkLighten15: lighten($dark, 75%);
-$darkLighten16: lighten($dark, 80%);
-$darkLighten17: lighten($dark, 85%);
-$darkLighten18: lighten($dark, 90%);
-$darkLighten19: lighten($dark, 95%);
+$darkLighten: (
+    5: lighten($dark, 5%),
+    10: lighten($dark, 10%),
+    15: lighten($dark, 15%),
+    20: lighten($dark, 20%),
+    25: lighten($dark, 25%),
+    30: lighten($dark, 30%),
+    35: lighten($dark, 35%),
+    40: lighten($dark, 40%),
+    45: lighten($dark, 45%),
+    50: lighten($dark, 50%),
+    55: lighten($dark, 55%),
+    60: lighten($dark, 60%),
+    65: lighten($dark, 65%),
+    70: lighten($dark, 70%),
+    75: lighten($dark, 75%),
+    80: lighten($dark, 80%),
+    85: lighten($dark, 85%),
+    90: lighten($dark, 90%),
+    95: lighten($dark, 95%)
+);
 
-$darkDarken1: darken($dark, 5%);
-$darkDarken2: darken($dark, 10%);
-$darkDarken3: darken($dark, 15%);
-$darkDarken4: darken($dark, 20%);
-$darkDarken5: darken($dark, 25%);
-$darkDarken6: darken($dark, 30%);
-$darkDarken7: darken($dark, 35%);
-$darkDarken8: darken($dark, 40%);
-$darkDarken9: darken($dark, 45%);
-$darkDarken10: darken($dark, 50%);
-$darkDarken11: darken($dark, 55%);
-$darkDarken12: darken($dark, 60%);
-$darkDarken13: darken($dark, 65%);
-$darkDarken14: darken($dark, 70%);
-$darkDarken15: darken($dark, 75%);
-$darkDarken16: darken($dark, 80%);
-$darkDarken17: darken($dark, 85%);
-$darkDarken18: darken($dark, 90%);
-$darkDarken19: darken($dark, 95%);
+$darkDarken: (
+    5: darken($dark, 5%),
+    10: darken($dark, 10%),
+    15: darken($dark, 15%),
+    20: darken($dark, 20%),
+    25: darken($dark, 25%),
+    30: darken($dark, 30%),
+    35: darken($dark, 35%),
+    40: darken($dark, 40%),
+    45: darken($dark, 45%),
+    50: darken($dark, 50%),
+    55: darken($dark, 55%),
+    60: darken($dark, 60%),
+    65: darken($dark, 65%),
+    70: darken($dark, 70%),
+    75: darken($dark, 75%),
+    80: darken($dark, 80%),
+    85: darken($dark, 85%),
+    90: darken($dark, 90%),
+    95: darken($dark, 95%)
+);
 
-$whiteLighten1: lighten($white, 5%);
-$whiteLighten2: lighten($white, 10%);
-$whiteLighten3: lighten($white, 15%);
-$whiteLighten4: lighten($white, 20%);
-$whiteLighten5: lighten($white, 25%);
-$whiteLighten6: lighten($white, 30%);
-$whiteLighten7: lighten($white, 35%);
-$whiteLighten8: lighten($white, 40%);
-$whiteLighten9: lighten($white, 45%);
-$whiteLighten10: lighten($white, 50%);
-$whiteLighten11: lighten($white, 55%);
-$whiteLighten12: lighten($white, 60%);
-$whiteLighten13: lighten($white, 65%);
-$whiteLighten14: lighten($white, 70%);
-$whiteLighten15: lighten($white, 75%);
-$whiteLighten16: lighten($white, 80%);
-$whiteLighten17: lighten($white, 85%);
-$whiteLighten18: lighten($white, 90%);
-$whiteLighten19: lighten($white, 95%);
+$whiteLighten: (
+    5: lighten($white, 5%),
+    10: lighten($white, 10%),
+    15: lighten($white, 15%),
+    20: lighten($white, 20%),
+    25: lighten($white, 25%),
+    30: lighten($white, 30%),
+    35: lighten($white, 35%),
+    40: lighten($white, 40%),
+    45: lighten($white, 45%),
+    50: lighten($white, 50%),
+    55: lighten($white, 55%),
+    60: lighten($white, 60%),
+    65: lighten($white, 65%),
+    70: lighten($white, 70%),
+    75: lighten($white, 75%),
+    80: lighten($white, 80%),
+    85: lighten($white, 85%),
+    90: lighten($white, 90%),
+    95: lighten($white, 95%)
+);
 
-$whiteDarken1: darken($white, 5%);
-$whiteDarken2: darken($white, 10%);
-$whiteDarken3: darken($white, 15%);
-$whiteDarken4: darken($white, 20%);
-$whiteDarken5: darken($white, 25%);
-$whiteDarken6: darken($white, 30%);
-$whiteDarken7: darken($white, 35%);
-$whiteDarken8: darken($white, 40%);
-$whiteDarken9: darken($white, 45%);
-$whiteDarken10: darken($white, 50%);
-$whiteDarken11: darken($white, 55%);
-$whiteDarken12: darken($white, 60%);
-$whiteDarken13: darken($white, 65%);
-$whiteDarken14: darken($white, 70%);
-$whiteDarken15: darken($white, 75%);
-$whiteDarken16: darken($white, 80%);
-$whiteDarken17: darken($white, 85%);
-$whiteDarken18: darken($white, 90%);
-$whiteDarken19: darken($white, 95%);
+$whiteDarken: (
+    5: darken($white, 5%),
+    10: darken($white, 10%),
+    15: darken($white, 15%),
+    20: darken($white, 20%),
+    25: darken($white, 25%),
+    30: darken($white, 30%),
+    35: darken($white, 35%),
+    40: darken($white, 40%),
+    45: darken($white, 45%),
+    50: darken($white, 50%),
+    55: darken($white, 55%),
+    60: darken($white, 60%),
+    65: darken($white, 65%),
+    70: darken($white, 70%),
+    75: darken($white, 75%),
+    80: darken($white, 80%),
+    85: darken($white, 85%),
+    90: darken($white, 90%),
+    95: darken($white, 95%)
+);
 
-$blackLighten1: lighten($black, 5%);
-$blackLighten2: lighten($black, 10%);
-$blackLighten3: lighten($black, 15%);
-$blackLighten4: lighten($black, 20%);
-$blackLighten5: lighten($black, 25%);
-$blackLighten6: lighten($black, 30%);
-$blackLighten7: lighten($black, 35%);
-$blackLighten8: lighten($black, 40%);
-$blackLighten9: lighten($black, 45%);
-$blackLighten10: lighten($black, 50%);
-$blackLighten11: lighten($black, 55%);
-$blackLighten12: lighten($black, 60%);
-$blackLighten13: lighten($black, 65%);
-$blackLighten14: lighten($black, 70%);
-$blackLighten15: lighten($black, 75%);
-$blackLighten16: lighten($black, 80%);
-$blackLighten17: lighten($black, 85%);
-$blackLighten18: lighten($black, 90%);
-$blackLighten19: lighten($black, 95%);
+$blackLighten: (
+    5: lighten($black, 5%),
+    10: lighten($black, 10%),
+    15: lighten($black, 15%),
+    20: lighten($black, 20%),
+    25: lighten($black, 25%),
+    30: lighten($black, 30%),
+    35: lighten($black, 35%),
+    40: lighten($black, 40%),
+    45: lighten($black, 45%),
+    50: lighten($black, 50%),
+    55: lighten($black, 55%),
+    60: lighten($black, 60%),
+    65: lighten($black, 65%),
+    70: lighten($black, 70%),
+    75: lighten($black, 75%),
+    80: lighten($black, 80%),
+    85: lighten($black, 85%),
+    90: lighten($black, 90%),
+    95: lighten($black, 95%)
+);
 
-$blackDarken1: darken($black, 5%);
-$blackDarken2: darken($black, 10%);
-$blackDarken3: darken($black, 15%);
-$blackDarken4: darken($black, 20%);
-$blackDarken5: darken($black, 25%);
-$blackDarken6: darken($black, 30%);
-$blackDarken7: darken($black, 35%);
-$blackDarken8: darken($black, 40%);
-$blackDarken9: darken($black, 45%);
-$blackDarken10: darken($black, 50%);
-$blackDarken11: darken($black, 55%);
-$blackDarken12: darken($black, 60%);
-$blackDarken13: darken($black, 65%);
-$blackDarken14: darken($black, 70%);
-$blackDarken15: darken($black, 75%);
-$blackDarken16: darken($black, 80%);
-$blackDarken17: darken($black, 85%);
-$blackDarken18: darken($black, 90%);
-$blackDarken19: darken($black, 95%);
+$blackDarken: (
+    5: darken($black, 5%),
+    10: darken($black, 10%),
+    15: darken($black, 15%),
+    20: darken($black, 20%),
+    25: darken($black, 25%),
+    30: darken($black, 30%),
+    35: darken($black, 35%),
+    40: darken($black, 40%),
+    45: darken($black, 45%),
+    50: darken($black, 50%),
+    55: darken($black, 55%),
+    60: darken($black, 60%),
+    65: darken($black, 65%),
+    70: darken($black, 70%),
+    75: darken($black, 75%),
+    80: darken($black, 80%),
+    85: darken($black, 85%),
+    90: darken($black, 90%),
+    95: darken($black, 95%)
+);
