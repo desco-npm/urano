@@ -29,3 +29,28 @@
     padding-right: $i + px;
   }
 }
+
+.no-padding,
+.not-padding {
+  padding: 0 !important;
+}
+
+.no-padding-left,
+.not-padding-left {
+  padding-left: 0 !important;
+}
+
+.no-padding-right,
+.not-padding-right {
+  padding-right: 0 !important;
+}
+
+.no-padding-top,
+.not-padding-top {
+  padding-top: 0 !important;
+}
+
+.no-padding-bottom,
+.not-padding-bottom {
+  padding-bottom: 0 !important;
+}

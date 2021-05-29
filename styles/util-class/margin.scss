@@ -29,3 +29,28 @@
     margin-right: $i + px;
   }
 }
+
+.no-margin,
+.not-margin {
+  margin: 0 !important;
+}
+
+.no-margin-left,
+.not-margin-left {
+  margin-left: 0 !important;
+}
+
+.no-margin-right,
+.not-margin-right {
+  margin-right: 0 !important;
+}
+
+.no-margin-top,
+.not-margin-top {
+  margin-top: 0 !important;
+}
+
+.no-margin-bottom,
+.not-margin-bottom {
+  margin-bottom: 0 !important;
+}
