@@ -1,6 +1,5 @@
-import Vue from 'vue'
-import VueResize from 'vue-resize'
+import Resize from 'vue-resize'
+import ResizeCSS from 'vue-resize/dist/vue-resize.css'
 
-import 'vue-resize/dist/vue-resize.css'
-
-Vue.use(VueResize)
+export const VueResize = Resize
+export const VueResizeCSS = ResizeCSS

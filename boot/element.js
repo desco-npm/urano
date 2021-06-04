@@ -1,9 +1,9 @@
-import ElementUI from 'element-ui'
+import  ElementUI from 'element-ui'
 import lang from 'element-ui/lib/locale/lang/pt'
 import locale from 'element-ui/lib/locale'
 
-locale.use(lang)
+export const UI = ElementUI
+export const langPt = lang
+export const translate = locale
 
-import './theme.scss'
-
-export default ElementUI
+export default UI
