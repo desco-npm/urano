@@ -25,6 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@quasar/extras": "^1.0.0",
+    "@vue/composition-api": "^1.0.0-rc.11",
     "axios": "^0.18.1",
     "camelcase": "^6.2.0",
     "clone": "^2.1.2",
@@ -39,6 +40,7 @@
     "object.map": "^1.0.1",
     "percent-value": "^1.0.9",
     "quasar": "^1.0.0",
+    "vue-echarts-v3": "^2.0.1",
     "vue-resize": "^1.0.0",
     "vuelidate": "^0.7.6"
   },
