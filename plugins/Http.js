@@ -10,7 +10,7 @@ export function setHeader (prop, value) {
 }
 
 export function setToken (value) {
-  setHeader('Token', value)
+  setHeader('Authorization', `Bearer ${value}`)
 }
 
 export function setBaseURL (url) {
