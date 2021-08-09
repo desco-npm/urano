@@ -8,6 +8,7 @@ class DefaultService {
       console.error(`@desco/urano: Entity Model not defined for the service`)
     }
 
+    this.prefix = params.prefix || ''
     this.entity = params.entity
     this.pkName = params.pkName || 'id'
   }
@@ -17,13 +18,13 @@ class DefaultService {
   }
 
   read (id, params = {}) {
-    const url = `${this.entity}/${id}`
+    const url = `${this.prefix}${this.entity}/${id}`
 
     return Http.get(url, { params, }).then(resp => resp.data)
   }
 
   list (params = {}) {
-    const url = `${this.entity}`
+    const url = `${this.prefix}${this.entity}`
 
     return Http.get(url, { params, }).then(resp => resp.data)
   }
@@ -38,19 +39,19 @@ class DefaultService {
   }
 
   update (data, params = {}) {
-    const url = `${this.entity}/${data[this.pkName]}`
+    const url = `${this.prefix}${this.entity}/${data[this.pkName]}`
 
     return Http.put(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
   }
 
   create (data, params = {}) {
-    const url = `${this.entity}`
+    const url = `${this.prefix}${this.entity}`
 
     return Http.post(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
   }
 
   delete (id) {
-    const url = `${this.entity}/${id}`
+    const url = `${this.prefix}${this.entity}/${id}`
 
     return Http.delete(url)
   }
