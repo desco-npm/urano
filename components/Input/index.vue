@@ -40,6 +40,31 @@
       v-if="element === 'imageupload'"
       v-model="data"
     )
+    el-select(
+      v-if="element === 'select'"
+      v-model="data"
+      :placeholder="attrs.placeholder"
+      :disabled="attrs.disabled"
+      :clearable ="attrs.clearable"
+      :multiple="attrs.multiple"
+      :collapse-tags="attrs.collapseTags"
+      :filterable="attrs.filterable"
+      :filter-method="attrs.filterMethod"
+      :remote="attrs.remote"
+      :remote-method="attrs.remoteMethod"
+      :allow-create="attrs.allowCreate"
+      :default-first-option="attrs.defaultFirstOption"
+      :value-key="attrs.valueProp || 'value'"
+      :loading="attrs.loading"
+      :loading-text="attrs.loadingText"
+    )
+      el-option(
+        v-for="item in attrs.options"
+        :key="item[attrs.valueProp || 'value']"
+        :label="item[attrs.labelProp || 'label']"
+        :value="item"
+        :disabled="item.disabled"
+      )
     form-validation-error(:v="v" :name="name", :service="service")
 </template>
 
@@ -66,7 +91,17 @@ export default {
       return this.service.model()[this.name];
     },
     attrs() {
-      return this.params;
+      const attrs = {
+        ...this.service.model()[this.name],
+        ...this.params,
+      };
+
+      if(this.element === 'select') {
+        attrs.remoteMethod = attrs.remoteMethod || (() => {})
+        attrs.filterMethod = attrs.filterMethod || (() => {})
+      }
+
+      return attrs
     },
     element() {
       if (this.field.element) return this.field.element.toLowerCase();
@@ -75,28 +110,39 @@ export default {
 
       switch (this.field.type.toLowerCase()) {
         case "string":
-          return "string";
+          return "string"
         case "text":
-          return "text";
+          return "text"
         case "password":
-          return "password";
+          return "password"
         case "email":
-          return "email";
+          return "email"
         case "date":
-          return "date";
+          return "date"
         case "texteditor":
-          return "texteditor";
+          return "texteditor"
         case "imageupload":
-          return "imageupload";
+          return "imageupload"
+        case "select": 
+          return "select"
       }
     },
   },
+  mounted () {
+    switch (this.element) {
+      case 'select': {
+        this.attrs.remoteMethod()
+      }
+        break
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
   .el-date-editor.el-input,
-  .el-date-editor.el-input__inner {
+  .el-date-editor.el-input__inner,
+  .el-select {
     width: 100%;
   }
 </style>
