@@ -1,5 +1,5 @@
 <template lang="pug">
-  .ur-input
+  el-form-item.ur-input(:label="attrs.label" :label-width="attrs.labelWidth")
     el-input(
       v-if="element === 'string'"
       v-model="data"
