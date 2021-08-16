@@ -65,7 +65,7 @@
         :value="item"
         :disabled="item.disabled"
       )
-    form-validation-error(:v="v" :name="name", :service="service")
+    form-validation-error(:v="v" :name="name" :dirty="dirty" :service="service")
 </template>
 
 <script>
@@ -128,12 +128,27 @@ export default {
       }
     },
   },
+  data () {
+    return {
+      dirty: false
+    }
+  },
   mounted () {
     switch (this.element) {
       case 'select': {
+        this.dirty = null
+
         this.attrs.remoteMethod()
       }
         break
+    }
+  },
+  watch: {
+    data: {
+      deep: true,
+      handler () {
+        this.dirty = this.dirty === null ? false : true
+      }
     }
   }
 };
