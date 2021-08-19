@@ -1,7 +1,13 @@
 export default {
+  props: {
+    value: {
+      type: String | Number | Object | Array | Boolean,
+      required: false,
+    }
+  },
   data() {
     return {
-      data: '',
+      data: undefined,
     }
   },
   watch: {

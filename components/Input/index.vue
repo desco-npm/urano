@@ -65,22 +65,28 @@
         :value="item"
         :disabled="item.disabled"
       )
+    el-switch(
+      v-if="element === 'switch'"
+      v-model="data"
+      :active-text="attrs.activeText"
+      :inactive-text="attrs.inactiveText"
+      :disabled="attrs.disabled"
+    )
     form-validation-error(:v="v" :name="name" :dirty="dirty" :service="service")
 </template>
 
 <script>
-import ModelWatchMixin from "@desco/urano/mixins/watch/model"
-import FormValidationError from "@desco/urano/components/FormValidationError"
+import ModelWatchMixin from "../../mixins/watch/model"
+import FormValidationError from "../../components/FormValidationError"
 
-import ImageUpload from '@desco/urano/components/Input/ImageUpload'
-import Password from '@desco/urano/components/Input/Password'
+import ImageUpload from '../../components/Input/ImageUpload'
+import Password from '../../components/Input/Password'
 
 export default {
   name: "UranoInput",
   mixins: [ ModelWatchMixin, ],
   components: { FormValidationError, ImageUpload, Password, },
   props: {
-    value: String | Number | Object | Array | Boolean,
     service: Object,
     name: String,
     params: { type: Object, default: () => ({}) },
@@ -125,6 +131,10 @@ export default {
           return "imageupload"
         case "select": 
           return "select"
+        case "boolean": 
+        case "toogle": 
+        case "switch": 
+          return "switch"
       }
     },
   },
@@ -134,11 +144,19 @@ export default {
     }
   },
   mounted () {
+    if(typeof this.attrs.default !== 'undefined') {
+      this.data = this.attrs.default
+    }
+
     switch (this.element) {
       case 'select': {
         this.dirty = null
 
         this.attrs.remoteMethod()
+      }
+        break
+      case 'switch': {
+        this.data = Boolean(this.data)
       }
         break
     }
