@@ -72,20 +72,27 @@
       :inactive-text="attrs.inactiveText"
       :disabled="attrs.disabled"
     )
+    SelectIcon(
+      v-if="element === 'selecticon'"
+      v-model="data"
+      :params="attrs"
+    )
     form-validation-error(:v="v" :name="name" :dirty="dirty" :service="service")
 </template>
 
 <script>
 import ModelWatchMixin from "../../mixins/watch/model"
-import FormValidationError from "../../components/FormValidationError"
 
-import ImageUpload from '../../components/Input/ImageUpload'
-import Password from '../../components/Input/Password'
+import FormValidationError from "../FormValidationError"
+
+import ImageUpload from './ImageUpload'
+import Password from './Password'
+import SelectIcon from './SelectIcon'
 
 export default {
   name: "UranoInput",
   mixins: [ ModelWatchMixin, ],
-  components: { FormValidationError, ImageUpload, Password, },
+  components: { FormValidationError, ImageUpload, Password, SelectIcon, },
   props: {
     service: Object,
     name: String,
@@ -135,6 +142,8 @@ export default {
         case "toogle": 
         case "switch": 
           return "switch"
+        case "selecticon": 
+          return "selecticon"
       }
     },
   },
