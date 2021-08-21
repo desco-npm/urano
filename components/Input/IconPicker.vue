@@ -19,7 +19,6 @@
         :value="icon"
       )
         q-icon(:name="icon")
-        |{{icon}}
 </template>
 
 <script>
@@ -77,10 +76,11 @@ export default {
     #selected-icon {
       position: absolute;
       bottom: 5px;
-      left: 5px;
+      left: 10px;
       width: 30px;
       height: 30px;
       z-index: 2;
+      font-size: 1.5rem;
     }
   }
 </style>
@@ -88,14 +88,21 @@ export default {
 <style lang="scss">
   .ur-select-icon-input {
     input[type=text] {
-      padding-left: 35px;
+      padding-left: 50px;
     }
   }
 
   .ur-select-icon-input-popper {
-    i {
-      width: 35px;
-      margin-left: -10px;
+    .el-scrollbar__view.el-select-dropdown__list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      i {
+        width: 35px;
+        // margin-left: -10px;
+        font-size: 1.75rem;
+      }
     }
   }
 </style>

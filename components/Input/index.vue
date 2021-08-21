@@ -72,8 +72,8 @@
       :inactive-text="attrs.inactiveText"
       :disabled="attrs.disabled"
     )
-    SelectIcon(
-      v-if="element === 'selecticon'"
+    IconPicker(
+      v-if="element === 'iconpicker'"
       v-model="data"
       :params="attrs"
     )
@@ -87,12 +87,12 @@ import FormValidationError from "../FormValidationError"
 
 import ImageUpload from './ImageUpload'
 import Password from './Password'
-import SelectIcon from './SelectIcon'
+import IconPicker from './IconPicker'
 
 export default {
   name: "UranoInput",
   mixins: [ ModelWatchMixin, ],
-  components: { FormValidationError, ImageUpload, Password, SelectIcon, },
+  components: { FormValidationError, ImageUpload, Password, IconPicker, },
   props: {
     service: Object,
     name: String,
@@ -142,8 +142,8 @@ export default {
         case "toogle": 
         case "switch": 
           return "switch"
-        case "selecticon": 
-          return "selecticon"
+        case "iconpicker": 
+          return "iconpicker"
       }
     },
   },
