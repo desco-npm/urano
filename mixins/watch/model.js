@@ -10,16 +10,19 @@ export default {
       data: undefined,
     }
   },
+  methods: {
+    fetch () {
+      this.data = this.value
+    },
+  },
+  mounted () {
+    this.fetch()
+  },
   watch: {
     value: {
       deep: true,
       handler () {
-        if (this.fetch) {
-          this.fetch(this.value)
-        }
-        else {
-          this.data = this.value
-        }
+        this.fetch(this.value)
       },
     },
     data: {
