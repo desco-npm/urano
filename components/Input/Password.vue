@@ -6,6 +6,7 @@
         :type="show ? 'text' : 'password'"
         v-model="data"
         :placeholder="attrs.placeholder"
+        @blur="onBlur"
       )
       font-awesome-icon(:icon="[ 'fa', show ? 'eye' : 'eye-slash', ]" size="lg" @click="toogleShow")
 </template>
@@ -35,6 +36,9 @@ export default {
     toogleShow () {
       this.show = !this.show
     },
+    onBlur () {
+      this.$emit('blur')
+    }
   },
 };
 </script>

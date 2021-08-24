@@ -26,6 +26,7 @@
     methods: {
       open () {
         this.$refs.input.click()
+        this.$emit('open')
       },
       async select (e) {
         this.data = (await fileBase64(e))[0]

@@ -11,6 +11,7 @@
       :filterable="attrs.filterable"
       :loading="attrs.loading"
       :loading-text="attrs.loadingText"
+      @blur="onBlur"
     )
       el-option(
         v-for="icon in icons"
@@ -59,6 +60,11 @@ export default {
         'fas fa-thumbs-up', 
         'fas fa-thumbs-down', 
       ]
+    }
+  },
+  methods: {
+    onBlur () {
+      this.$emit('blur')
     }
   }
 };

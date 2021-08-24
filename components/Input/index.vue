@@ -4,17 +4,20 @@
       v-if="element === 'string'"
       v-model="data"
       :placeholder="attrs.placeholder"
+      @blur="setTouched"
     )
     Password(
       v-if="element === 'password'"
       v-model="data"
       :params="attrs"
+      @blur="setTouched"
     )
     el-input(
       v-if="element === 'email'"
       type="email"
       v-model="data"
       :placeholder="attrs.placeholder"
+      @blur="setTouched"
     )
     el-input(
       v-if="element === 'text'"
@@ -22,6 +25,7 @@
       v-model="data"
       :placeholder="attrs.placeholder"
       :rows="attrs.rows"
+      @blur="setTouched"
     )
     el-date-picker(
       v-if="element === 'date'"
@@ -29,16 +33,18 @@
       v-model="data"
       :placeholder="attrs.placeholder"
       :format="attrs.format || 'dd/MM/yyyy'"
+      @blur="setTouched"
     )
-    q-editor(
+    Editor(
       v-if="element === 'texteditor'"
       v-model="data"
-      :min-height="attrs.minHeight || '15rem'"
-      :placeholder="attrs.placeholder"
+      :params="attrs"
+      @blur="setTouched"
     )
     ImageUpload(
       v-if="element === 'imageupload'"
       v-model="data"
+      @open="setTouched"
     )
     el-select(
       v-if="element === 'select'"
@@ -57,6 +63,7 @@
       :value-key="attrs.valueProp || 'value'"
       :loading="attrs.loading"
       :loading-text="attrs.loadingText"
+      @blur="setTouched"
     )
       el-option(
         v-for="item in attrs.options"
@@ -71,13 +78,15 @@
       :active-text="attrs.activeText"
       :inactive-text="attrs.inactiveText"
       :disabled="attrs.disabled"
+      @change="setTouched"
     )
     IconPicker(
       v-if="element === 'iconpicker'"
       v-model="data"
       :params="attrs"
+      @blur="setTouched"
     )
-    form-validation-error(:v="v" :name="name" :dirty="dirty" :service="service")
+    form-validation-error(:v="v" :name="name" :dirty="dirty" :touched="touched" :service="service")
 </template>
 
 <script>
@@ -88,11 +97,12 @@ import FormValidationError from "../FormValidationError"
 import ImageUpload from './ImageUpload'
 import Password from './Password'
 import IconPicker from './IconPicker'
+import Editor from './Editor'
 
 export default {
   name: "UranoInput",
   mixins: [ ModelWatchMixin, ],
-  components: { FormValidationError, ImageUpload, Password, IconPicker, },
+  components: { FormValidationError, ImageUpload, Password, IconPicker, Editor, },
   props: {
     service: Object,
     name: String,
@@ -149,7 +159,15 @@ export default {
   },
   data () {
     return {
-      dirty: false
+      dirty: false,
+      touched: false,
+    }
+  },
+  methods: {
+    setTouched () {
+      this.touched = true
+
+      this.$emit('touched')
     }
   },
   mounted () {
@@ -157,10 +175,11 @@ export default {
       this.data = this.attrs.default
     }
 
+    this.dirty = null
+    this.touched = null
+
     switch (this.element) {
       case 'select': {
-        this.dirty = null
-
         this.attrs.remoteMethod()
       }
         break
@@ -175,6 +194,10 @@ export default {
       deep: true,
       handler () {
         this.dirty = this.dirty === null ? false : true
+
+        if (this.dirty) {
+          this.$emit('dirty')
+        }
       }
     }
   }
