@@ -79,7 +79,6 @@ export default {
       this.config.series[0].label.formatter = this.labelFormatter
     },
     fetchLegend () {
-      console.log('pol', this.isCompact())
       this.config.legend.show = this.isCompact() ? this.legendCompact : this.legend
     },
     fetchLabel () {
