@@ -1,3 +1,5 @@
-import * as GmapVue from 'gmap-vue'
+import 'vue-googlemaps/dist/vue-googlemaps.css'
+import VueGoogleMaps from 'vue-googlemaps'
 
-export default GmapVue
+export default VueGoogleMaps
+export * from 'vue-googlemaps'

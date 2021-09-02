@@ -41,6 +41,7 @@
     "percent-value": "^1.0.9",
     "quasar": "^1.0.0",
     "vue-echarts-v3": "^2.0.1",
+    "vue-googlemaps": "^0.1.2",
     "vue-resize": "^1.0.0",
     "vuelidate": "^0.7.6"
   },
