@@ -13,6 +13,14 @@ export function setToken (value) {
   setHeader('Authorization', `Bearer ${value}`)
 }
 
+export function getToken () {
+  return Http.defaults.headers.common['Authorization']
+}
+
+export function haveToken () {
+  return getToken() !== 'Bearer undefined'
+}
+
 export function setBaseURL (url) {
   Http.defaults.baseURL = url
 }
