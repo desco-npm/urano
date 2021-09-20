@@ -86,7 +86,7 @@
       :params="attrs"
       @blur="setTouched"
     )
-    form-validation-error(:v="v" :name="name" :dirty="dirty" :touched="touched" :service="service")
+    form-validation-error(:v="validation" :name="name" :dirty="dirty" :touched="touched" :service="service")
 </template>
 
 <script>
@@ -107,7 +107,7 @@ export default {
     service: Object,
     name: String,
     params: { type: Object, default: () => ({}) },
-    v: Object,
+    validation: Object,
   },
   computed: {
     field() {
