@@ -1,9 +1,4 @@
-import { gmapApi as googleMaps, } from 'gmap-vue'
-
 export default {
-  computed: {
-    googleMaps,
-  },
   methods: {
     getCurrentPosition (options = {}) {
       return new Promise((resolve, reject) => {
