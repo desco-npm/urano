@@ -15,11 +15,8 @@
 </template>
 
 <script>
-import CardListItem from '../../components/Skeleton/CardListItem'
-
 export default {
   name: 'CardList',
-  components: { CardListItem, },
   props: {
     className: String,
     data: [] | null,
