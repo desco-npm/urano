@@ -2,6 +2,23 @@
   .div.card-list
     .row.q-gutter-lg
       .col.col-5.item(
+        v-if="!data"
+        v-for="i in skeletonLen" :key="i"
+        :class="{ [className]: true, }"
+      )
+        CardListItemSkeleton(
+          :animation="skeletonAnimation"
+          :color="skeletonColor"
+          :showLabel="skeletonShowLabel"
+          :labelWidth="skeletonLabelWidth"
+          :labelHeight="skeletonLabelHeight"
+          :showIcon="skeletonShowIcon"
+          :iconWidth="skeletonIconWidth"
+          :iconHeight="skeletonIconHeight"
+          :titleWidth="skeletonTitleWidth"
+          :titleHeight="skeletonTitleHeight"
+        )
+      .col.col-5.item(
         v-if="data"
         v-for="(item, k) in data" :key="k"
         :class="{ [className]: true, }"
@@ -15,8 +32,11 @@
 </template>
 
 <script>
+import CardListItemSkeleton from '../Skeleton/CardListItem'
+
 export default {
   name: 'CardList',
+  components: { CardListItemSkeleton, },
   props: {
     className: String,
     data: [] | null,
@@ -24,7 +44,17 @@ export default {
     titleProp: { type: String, default: 'title', },
     iconProp: { type: String, default: 'icon', },
     equalHeights: { type: Boolean, default: true, },
-
+    skeletonLen: { type: Number, default: 10, },
+    skeletonAnimation: String,
+    skeletonColor: String,
+    skeletonLabelIcon: Boolean,
+    skeletonLabelWidth: Number,
+    skeletonLabelHeight: Number,
+    skeletonShowIcon: Boolean,
+    skeletonIconWidth: Number,
+    skeletonIconHeight: Number,
+    skeletonTitleWidth: Number,
+    skeletonTitleHeight: Number,
   },
   methods: {
     fetch () {
@@ -47,6 +77,10 @@ export default {
     flex-direction: column;
     position: relative;
     text-decoration: none;
+
+    a {
+      text-decoration: none;
+    }
 
     .title {
       font-weight: bold;
