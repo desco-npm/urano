@@ -23,7 +23,7 @@ export default {
     to: {},
     titleProp: { type: String, default: 'title', },
     iconProp: { type: String, default: 'icon', },
-    equalHeights: { type: Boolean, default: 'true', },
+    equalHeights: { type: Boolean, default: true, },
 
   },
   methods: {
