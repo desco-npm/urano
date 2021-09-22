@@ -26,7 +26,7 @@
         router-link.shadow-up-3(:to="getTo(item)" :class="{'v-full': equalHeights, }")
           el-card.grid-margin(:class="{'v-full': equalHeights, }")
             div.header
-              q-icon(:name="item[iconProp]" v-if="item[iconProp]")
+              q-icon(:name="item[iconProp]" v-if="showIcon")
               el-tag(v-if="item.label" :type="item.label.type") {{item.label.value}}
             span.title {{item[titleProp]}}
 </template>
@@ -55,6 +55,7 @@ export default {
     skeletonIconHeight: Number,
     skeletonTitleWidth: Number,
     skeletonTitleHeight: Number,
+    showIcon: { type: Boolean, default: true, },
   },
   methods: {
     fetch () {
