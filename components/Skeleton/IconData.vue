@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-card.card-list-item-skeleton
+  el-card.icon-data
     q-skeleton.tag(
       v-if="showLabel"
       type="QBadge"
@@ -30,18 +30,18 @@
 import SkeletonMixin from './mixin'
 
 export default {
-  name: 'CardListItemSkeleton',
+  name: 'IconData',
   mixins: [ SkeletonMixin, ],
   props: {
     showIcon: { type: Boolean, default: true, },
     showLabel: { type: Boolean, default: true, },
     showTitle: { type: Boolean, default: true, },
-    labelWidth: { type: Number, default: '60px', },
-    labelHeight: { type: Number, default: '30px', },
-    iconWidth: { type: Number, default: '50px', },
-    iconHeight: { type: Number, default: '50px', },
-    titleWidth: { type: Number, default: '80%', },
-    titleHeight: { type: Number, default: '40px', },
+    labelWidth: { type: String, default: '60px', },
+    labelHeight: { type: String, default: '30px', },
+    iconWidth: { type: String, default: '50px', },
+    iconHeight: { type: String, default: '50px', },
+    titleWidth: { type: String, default: '80%', },
+    titleHeight: { type: String, default: '40px', },
   },
 }
 </script>

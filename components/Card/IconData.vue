@@ -1,17 +1,9 @@
 <template lang="pug">
-  .div.card-list
-    .row.q-gutter-lg
-      .col.col-5.item(
-        v-if="!data"
-        v-for="i in skeletonLen" :key="i"
-      )
-        slot(name="skeleton")
-      .col.col-5.item(
-        v-if="data"
-        v-for="(item, k) in data" :key="k"
-      )
-        router-link.v-full(:to="getTo(item)")
-          slot(v-bind="item")
+  el-card.icon-data-card.shadow-up-3
+    div.header
+      q-icon(:name="icon" v-if="icon")
+      el-tag(v-if="label" :type="label.type") {{label.value}}
+    span.title(v-if="title") {{title}}
 </template>
 
 <script>
@@ -21,27 +13,15 @@ export default {
   name: 'CardList',
   components: { IconDataSkeleton, },
   props: {
-    data: [] | null,
-    to: {},
-    skeletonLen: { type: Number, default: 10, },
-  },
-  methods: {
-    fetch () {
-      this.$emit('fetch')
-    },
-    getTo (item) {
-      const params = {}
-
-      this.to.params.map(i => params[i] = item[i])
-
-      return { ...this.to, params, }
-    }
+    icon: String,
+    title: String,
+    label: Object,
   },
 }
 </script>
 
 <style scoped lang="scss">
-  .item {
+  .icon-data-card {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -76,7 +56,7 @@ export default {
 </style>
 
 <style lang="scss">
-  div.card-list {
+  div.icon-data-card {
     .el-card__body {
       padding: 30px 10px;
     }

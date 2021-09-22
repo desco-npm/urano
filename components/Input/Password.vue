@@ -8,7 +8,7 @@
         :placeholder="attrs.placeholder"
         @blur="onBlur"
       )
-      font-awesome-icon(:icon="[ 'fa', show ? 'eye' : 'eye-slash', ]" size="lg" @click="toogleShow")
+      q-icon(:name="show ? 'fas fa-eye' : 'fas fa-slash'" @click="toogleShow")
 </template>
 
 <script>
