@@ -9,12 +9,13 @@
         CardListItemSkeleton(
           :animation="skeletonAnimation"
           :color="skeletonColor"
-          :showLabel="skeletonShowLabel"
+          :showLabel="showLabel"
           :labelWidth="skeletonLabelWidth"
           :labelHeight="skeletonLabelHeight"
-          :showIcon="skeletonShowIcon"
+          :showIcon="showIcon"
           :iconWidth="skeletonIconWidth"
           :iconHeight="skeletonIconHeight"
+          :showTitle="showTitle"
           :titleWidth="skeletonTitleWidth"
           :titleHeight="skeletonTitleHeight"
         )
@@ -28,7 +29,7 @@
             div.header
               q-icon(:name="item[iconProp]" v-if="showIcon")
               el-tag(v-if="item.label" :type="item.label.type") {{item.label.value}}
-            span.title {{item[titleProp]}}
+            span.title(v-if="showTitle") {{item[titleProp]}}
 </template>
 
 <script>
@@ -44,18 +45,19 @@ export default {
     titleProp: { type: String, default: 'title', },
     iconProp: { type: String, default: 'icon', },
     equalHeights: { type: Boolean, default: true, },
+    showIcon: { type: Boolean, default: true, },
+    showTitle: { type: Boolean, default: true, },
+    showLabel: { type: Boolean, default: true, },
     skeletonLen: { type: Number, default: 10, },
     skeletonAnimation: String,
     skeletonColor: String,
     skeletonLabelIcon: Boolean,
     skeletonLabelWidth: Number,
     skeletonLabelHeight: Number,
-    skeletonShowIcon: Boolean,
     skeletonIconWidth: Number,
     skeletonIconHeight: Number,
     skeletonTitleWidth: Number,
     skeletonTitleHeight: Number,
-    showIcon: { type: Boolean, default: true, },
   },
   methods: {
     fetch () {

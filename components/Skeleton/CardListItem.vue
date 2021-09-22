@@ -1,6 +1,7 @@
 <template lang="pug">
   el-card.card-list-item-skeleton
     q-skeleton.tag(
+      v-if="showLabel"
       type="QBadge"
       :animation="animation"
       :width="labelWidth"
@@ -8,6 +9,7 @@
       :style="{ backgroundColor: color, }"
     )
     q-skeleton.icon(
+      v-if="showIcon"
       type="rect"
       :animation="animation"
       :width="iconWidth"
@@ -15,6 +17,7 @@
       :style="{ backgroundColor: color, }"
     )
     q-skeleton.title(
+      v-if="showTitle"
       type="text"
       :animation="animation"
       :width="titleWidth"
@@ -30,6 +33,7 @@ export default {
   name: 'CardListItemSkeleton',
   mixins: [ SkeletonMixin, ],
   props: {
+    showIcon: { type: Boolean, default: true, },
     showLabel: { type: Boolean, default: true, },
     showTitle: { type: Boolean, default: true, },
     labelWidth: { type: Number, default: '60px', },
