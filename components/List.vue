@@ -12,9 +12,9 @@
         v-for="(item, k) in data" :key="k"
         :class="getResponsiveClass()"
       )
-        router-link.v-full(v-if="item.to" :to="getTo(item)")
+        router-link.v-full(v-if="to" :to="getTo(item)")
           slot(v-bind="item")
-        slot(v-if="!item.to" v-bind="item")
+        slot(v-if="!to" v-bind="item")
 </template>
 
 <script>

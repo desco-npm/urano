@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-card.icon-data
+  el-card.icon-data-skeleton
     q-skeleton.tag(
       v-if="showLabel"
       type="QBadge"

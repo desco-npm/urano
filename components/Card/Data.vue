@@ -12,11 +12,11 @@
 </template>
 
 <script>
+import Mixin from './mixin'
+
 export default {
   name: 'DataCard',
-  props: {
-    card: { type: Boolean, default: true, },
-  },
+  mixins: [ Mixin, ],
 }
 </script>
 

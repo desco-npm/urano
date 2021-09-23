@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-card.icon-data
+  el-card.four-lines-bordered-color-skeleton
     .row.margin-bottom-20
       .col.col-2(v-if="showIcon")
         q-skeleton.icon(
