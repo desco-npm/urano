@@ -30,7 +30,7 @@
 import SkeletonMixin from './mixin'
 
 export default {
-  name: 'IconData',
+  name: 'IconDataSkeleton',
   mixins: [ SkeletonMixin, ],
   props: {
     showIcon: { type: Boolean, default: true, },
