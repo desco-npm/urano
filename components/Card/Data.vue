@@ -1,18 +1,22 @@
 <template lang="pug">
-  el-row.data-card
-    el-col(:span="2")
-      slot(name="icon")
-    el-col.label(:span="22")
-      slot(name="label")
-    el-col(:span="2")
-      |&nbsp;
-    el-col(:span="22")
-      slot(name="data")
+  el-card.data-card(:class="{'no-card': !card, }")
+    el-row
+      el-col(:span="2")
+        slot(name="icon")
+      el-col.label(:span="22")
+        slot(name="label")
+      el-col(:span="2")
+        |&nbsp;
+      el-col(:span="22")
+        slot(name="data")
 </template>
 
 <script>
 export default {
   name: 'DataCard',
+  props: {
+    card: { type: Boolean, default: true, },
+  },
 }
 </script>
 
@@ -21,5 +25,20 @@ export default {
     font-weight: bold;
     font-size: 1.2rem;
     margin-top: -3px;
+  }
+</style>
+
+
+<style lang="scss">
+  .data-card {
+    &.no-card {
+      box-shadow: none;
+      border: 0;
+      margin: 0;
+
+      .el-card__body {
+        padding: 0;
+      }
+    }
   }
 </style>

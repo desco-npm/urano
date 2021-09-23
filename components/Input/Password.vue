@@ -8,7 +8,7 @@
         :placeholder="attrs.placeholder"
         @blur="onBlur"
       )
-      q-icon(:name="show ? 'fas fa-eye' : 'fas fa-slash'" @click="toogleShow")
+      q-icon(:name="show ? 'fas fa-eye' : 'fas fa-eye-slash'" @click="toogleShow")
 </template>
 
 <script>
@@ -48,7 +48,7 @@ export default {
     position: relative;
   }
 
-  svg {
+  i {
     position: absolute;
     top: 0;
     right: 12px;

@@ -1,25 +1,23 @@
 <template lang="pug">
   el-card.icon-data
     .row.margin-bottom-20
-      .col.col-2
+      .col.col-2(v-if="showIcon")
         q-skeleton.icon(
-          v-if="showIcon"
           type="rect"
           :animation="animation"
           :width="iconWidth"
           :height="iconHeight"
           :style="{ backgroundColor: color, }"
         )
-      .col.col-10
+      .col(v-if="showTitle" :class="{ 'col-10': showIcon, 'col-12': !showIcon, }")
         q-skeleton.title(
-          v-if="showTitle"
           type="rect"
           :animation="animation"
           :width="titleWidth"
           :height="titleHeight"
           :style="{ backgroundColor: color, }"
         )
-    q-skeleton.title(
+    q-skeleton.line2(
       v-if="showLine2"
       type="text"
       :animation="animation"
