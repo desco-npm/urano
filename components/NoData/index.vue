@@ -1,9 +1,9 @@
 <template lang="pug">
   div
-    div(v-if="data.length === 0")
-      el-empty(:description="description")
-    div(v-else)
+    div(v-if="!data || data.length > 0")
       slot
+    div(v-else)
+      el-empty(:description="description")
 </template>
 
 <script>
