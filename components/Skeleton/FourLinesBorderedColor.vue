@@ -59,8 +59,11 @@ export default {
     iconHeight: { type: String, default: '30px', },
     titleWidth: { type: String, default: '100%', },
     titleHeight: { type: String, default: '30px', },
+    line2Height: { type: String, default: '30px', },
     line2Width: { type: String, default: '100%', },
     line3Height: { type: String, default: '30px', },
+    line3Width: { type: String, default: '100%', },
+    line4Width: { type: String, default: '30px', },
     line4Height: { type: String, default: '30px', },
   },
 }
