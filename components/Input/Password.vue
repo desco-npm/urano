@@ -8,7 +8,7 @@
         :placeholder="attrs.placeholder"
         @blur="onBlur"
       )
-      q-icon(:name="'fas fa-eye'" @click="toogleShow")
+      q-icon(:name="show ? 'fas fa-eye' : 'fas fa-eye-slash'" @click="toogleShow")
 </template>
 
 <script>
