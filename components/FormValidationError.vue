@@ -25,8 +25,8 @@ div
   span(v-if="show && field.passwordStrength === false")
     span(v-if="getCustomMessage('passwordStrength')") {{getCustomMessage('passwordStrength')}}
     span(v-else) 
-    | Senha muito fraca!
-    b {{ service.model()[field.$params.sameAs.eq].passwordStrength }}
+    | A senha atual é muito fraca!
+    |({{field.$params.passwordStrength.strong}}/{{field.$params.passwordStrength.required}})
 
 </template>
 
