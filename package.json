@@ -22,6 +22,7 @@
     "@quasar/extras": "^1.0.0",
     "@vue/composition-api": "^1.0.0-rc.11",
     "axios": "^0.18.1",
+    "check-password-strength": "^2.0.3",
     "clone": "^2.1.2",
     "console-log-html": "^2.0.2",
     "core-js": "^3.6.5",
