@@ -26,7 +26,7 @@ div
     span(v-if="getCustomMessage('passwordStrength')") {{getCustomMessage('passwordStrength')}}
     span(v-else) 
     | A senha atual é muito fraca!
-    |({{field.$params.passwordStrength.strong}}/{{field.$params.passwordStrength.required}})
+    |({{field.$params.passwordStrength.strong || 0}}/{{field.$params.passwordStrength.required}})
 
 </template>
 
