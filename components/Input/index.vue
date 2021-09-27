@@ -123,6 +123,14 @@ export default {
         attrs.remoteMethod = attrs.remoteMethod || (() => {})
         attrs.filterMethod = attrs.filterMethod || (() => {})
       }
+      else if (this.element === 'password') {
+        if ((this.validation[this.name].$params.passwordStrength || {}).required >= 0) {
+          attrs.strengthRequired = this.validation[this.name].$params.passwordStrength.required
+          attrs.strength = this.validation[this.name].$invalid
+            ? this.validation[this.name].$params.passwordStrength.strong
+            : attrs.strengthRequired
+        }
+      }
 
       return attrs
     },
@@ -136,8 +144,9 @@ export default {
           return "string"
         case "text":
           return "text"
-        case "password":
+        case "password": {
           return "password"
+        }
         case "email":
           return "email"
         case "date":

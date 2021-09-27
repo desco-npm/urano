@@ -1,6 +1,6 @@
 <template lang="pug">
   .ur-password-input
-    span
+    span.input
       el-input(
         ref="password"
         :type="show ? 'text' : 'password'"
@@ -9,6 +9,9 @@
         @blur="onBlur"
       )
       q-icon(:name="show ? 'fas fa-eye' : 'fas fa-eye-slash'" @click="toogleShow")
+    .row.strength.q-gutter-xs
+      .col( v-for="i in params.strengthRequired" :key="i" :class="{ valid: params.strength >= i}")
+        |&nbsp;
 </template>
 
 <script>
@@ -44,14 +47,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  span {
+  @import "~@/appProfile/theme";
+
+  span.input {
     position: relative;
+
+    i {
+      position: absolute;
+      top: 0;
+      right: 12px;
+      cursor: pointer;
+    }
   }
 
-  i {
-    position: absolute;
-    top: 0;
-    right: 12px;
-    cursor: pointer;
+  .strength {
+    .col {
+      background: $info;
+      margin-top: 12px;
+      max-height: 4px;
+
+      &.valid { 
+        background: $positive;
+      }
+    }
   }
+
 </style>
