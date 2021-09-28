@@ -124,7 +124,9 @@ export default {
         attrs.filterMethod = attrs.filterMethod || (() => {})
       }
       else if (this.element === 'password') {
-        if ((this.validation[this.name].$params.passwordStrength || {}).required >= 0) {
+        const hasValidation = this.validation[this.name]
+
+        if (hasValidation && this.validation[this.name].$params.passwordStrength.required >= 0) {
           attrs.strengthRequired = this.validation[this.name].$params.passwordStrength.required
           attrs.strength = this.validation[this.name].$invalid
             ? this.validation[this.name].$params.passwordStrength.strong
