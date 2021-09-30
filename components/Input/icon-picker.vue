@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import ModelWatchMixin from "@desco/urano/mixins/watch/model"
-
 export default {
-  name: "UranoSelectIconInput",
-  mixins: [ ModelWatchMixin, ],
+  name: 'ur-icon-picker',
+  mixins: [
+    require('@desco/urano/mixins/watch/model').default,
+  ],
   props: {
     value: String,
     name: String,

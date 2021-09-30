@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    input(ref="input" type="file" @change="select")
+    app-input(ref="input" type="file" @change="select")
     div.img(v-if="data")
       img(:src="data")
     el-button.full.bg-primary.text-white(@click.native="open")
@@ -9,12 +9,13 @@
 </template>
 
 <script>
-  import ModelWatchMixin from "@desco/urano/mixins/watch/model"
   import fileBase64 from '@desco/urano/functions/fileBase64'
 
   export default {
     name: 'ImageUpload',
-    mixins: [ModelWatchMixin],
+    mixins: [
+      require('@desco/urano/mixins/watch/model').default,
+    ],
     props: {
       value: String,
     },

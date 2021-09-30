@@ -8,11 +8,11 @@
 </template>
 
 <script>
-  import ModelWatchMixin from "@desco/urano/mixins/watch/model"
-
-  export default {
-    name: 'Editor',
-    mixins: [ ModelWatchMixin, ],
+    export default {
+    name: 'ur-editor',
+    mixins: [
+      require('@desco/urano/mixins/watch/model').default,
+    ],
     props: {
       value: String,
       params: { type: Object, default: () => ({}) },

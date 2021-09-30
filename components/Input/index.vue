@@ -6,7 +6,7 @@
       :placeholder="attrs.placeholder"
       @blur="setTouched"
     )
-    Password(
+    ur-password(
       v-if="element === 'password'"
       v-model="data"
       :params="attrs"
@@ -35,13 +35,13 @@
       :format="attrs.format || 'dd/MM/yyyy'"
       @blur="setTouched"
     )
-    Editor(
+    ur-editor(
       v-if="element === 'texteditor'"
       v-model="data"
       :params="attrs"
       @blur="setTouched"
     )
-    ImageUpload(
+    ur-image-upload(
       v-if="element === 'imageupload'"
       v-model="data"
       @open="setTouched"
@@ -80,93 +80,42 @@
       :disabled="attrs.disabled"
       @change="setTouched"
     )
-    IconPicker(
+    ur-icon-picker(
       v-if="element === 'iconpicker'"
       v-model="data"
       :params="attrs"
       @blur="setTouched"
     )
-    form-validation-error(:v="validation" :name="name" :dirty="dirty" :touched="touched" :service="service")
+    ur-autocomplete(
+      v-if="element === 'autocomplete'"
+      v-model="data"
+      :params="attrs"
+      @blur="setTouched"
+      @select="onSelect"
+      @fetch-suggestions="onQuerySearch"
+    )
+    ur-form-validation-error(
+      :v="validation"
+      :name="name"
+      :dirty="dirty"
+      :touched="touched"
+      :service="service"
+    )
 </template>
 
 <script>
-import ModelWatchMixin from "../../mixins/watch/model"
-
-import FormValidationError from "../FormValidationError"
-
-import ImageUpload from './ImageUpload'
-import Password from './Password'
-import IconPicker from './IconPicker'
-import Editor from './Editor'
-
 export default {
-  name: "UranoInput",
-  mixins: [ ModelWatchMixin, ],
-  components: { FormValidationError, ImageUpload, Password, IconPicker, Editor, },
-  props: {
-    service: Object,
-    name: String,
-    params: { type: Object, default: () => ({}) },
-    validation: Object,
-  },
-  computed: {
-    field() {
-      return this.service.model()[this.name];
-    },
-    attrs() {
-      const attrs = {
-        ...this.service.model()[this.name],
-        ...this.params,
-      };
-
-      if(this.element === 'select') {
-        attrs.remoteMethod = attrs.remoteMethod || (() => {})
-        attrs.filterMethod = attrs.filterMethod || (() => {})
-      }
-      else if (this.element === 'password') {
-        const hasValidation = this.validation[this.name]
-
-        if (hasValidation && this.validation[this.name].$params.passwordStrength.required >= 0) {
-          attrs.strengthRequired = this.validation[this.name].$params.passwordStrength.required
-          attrs.strength = this.validation[this.name].$invalid
-            ? this.validation[this.name].$params.passwordStrength.strong
-            : attrs.strengthRequired
-        }
-      }
-
-      return attrs
-    },
-    element() {
-      if (this.field.element) return this.field.element.toLowerCase();
-
-      if (!this.field.type) return "string";
-
-      switch (this.field.type.toLowerCase()) {
-        case "string":
-          return "string"
-        case "text":
-          return "text"
-        case "password": {
-          return "password"
-        }
-        case "email":
-          return "email"
-        case "date":
-          return "date"
-        case "texteditor":
-          return "texteditor"
-        case "imageupload":
-          return "imageupload"
-        case "select": 
-          return "select"
-        case "boolean": 
-        case "toogle": 
-        case "switch": 
-          return "switch"
-        case "iconpicker": 
-          return "iconpicker"
-      }
-    },
+  name: 'ur-input',
+  mixins: [
+    require('./inputMixin').default,
+  ],
+  components: {
+    'ur-image-upload': require('./image-upload').default,
+    'ur-password': require('./password').default,
+    'ur-icon-picker': require('./icon-picker').default,
+    'ur-editor': require('./editor').default,
+    'ur-autocomplete': require('./autocomplete').default,
+    'ur-form-validation-error': require('../form-validation-error').default,
   },
   data () {
     return {
@@ -175,10 +124,11 @@ export default {
     }
   },
   methods: {
-    setTouched () {
-      this.touched = true
-
-      this.$emit('touched')
+    onQuerySearch (query, cb) {
+      this.$emit('fetch-suggestions', query, cb)
+    },
+    onSelect (item) {
+      this.$emit('select', item)
     }
   },
   mounted () {
@@ -215,10 +165,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-  .el-date-editor.el-input,
-  .el-date-editor.el-input__inner,
-  .el-select {
-    width: 100%;
+<style lang="scss">
+  .ur-input {
+    .el-date-editor.el-input,
+    .el-date-editor.el-input__inner,
+    .el-select,
+    .el-autocomplete.inline-input {
+      width: 100%;
+    }
   }
 </style>
