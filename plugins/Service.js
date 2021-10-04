@@ -1,5 +1,4 @@
 import Http from '@desco/urano/plugins/Http'
-import objectMap from '@desco/urano/functions/objectMap'
 import objectFilter from '@desco/urano/functions/objectFilter'
 
 class DefaultService {
@@ -67,14 +66,6 @@ class DefaultService {
 
     return objectFilter(data, (v, k) => list.indexOf(k) === -1)
   }
-
-  // validatorRules() {
-  //   const validRules = [ 'required', 'minLength', 'maxLength', 'email', 'sameAs' ]
-
-  //   return objectMap(this.model(), field => {
-  //     return objectFilter(field, (value, key) => validRules.indexOf(key) !== -1)
-  //   })
-  // }
 }
 
 export default DefaultService
