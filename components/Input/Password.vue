@@ -1,6 +1,6 @@
 <template lang="pug">
   .ur-password-input
-    span.input
+    div.input
       el-input(
         ref="password"
         :type="show ? 'text' : 'password'"
@@ -49,12 +49,12 @@ export default {
 <style lang="scss" scoped>
   @import "~@/appProfile/theme";
 
-  span.input {
+  div.input {
     position: relative;
 
     i {
       position: absolute;
-      top: 0;
+      bottom: 12px;
       right: 12px;
       cursor: pointer;
     }
