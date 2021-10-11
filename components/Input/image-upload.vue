@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    app-input(ref="input" type="file" @change="select")
+    el-input(ref="input" type="file" @change="select")
     div.img(v-if="data")
       img(:src="data")
     el-button.full.bg-primary.text-white(@click.native="open")
@@ -12,7 +12,7 @@
   import fileBase64 from '@desco/urano/functions/fileBase64'
 
   export default {
-    name: 'ImageUpload',
+    name: 'ur-image-upload',
     mixins: [
       require('@desco/urano/mixins/watch/model').default,
     ],
