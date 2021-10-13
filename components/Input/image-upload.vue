@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    el-input(ref="input" type="file" @change="select")
+    input(ref="input" type="file" @change="select")
     div.img(v-if="data")
       img(:src="data")
     el-button.full.bg-primary.text-white(@click.native="open")
