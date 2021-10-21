@@ -30,15 +30,13 @@ export default {
 
 
 <style lang="scss">
-  .data-card {
-    &.no-card {
-      box-shadow: none;
-      border: 0;
-      margin: 0;
+  .data-card.no-card {
+    box-shadow: none !important;
+    border: 0;
+    margin: 0;
 
-      .el-card__body {
-        padding: 0;
-      }
+    .el-card__body {
+      padding: 0;
     }
   }
 </style>
