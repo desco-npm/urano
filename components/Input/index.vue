@@ -45,6 +45,7 @@
       v-if="element === 'imageupload'"
       v-model="data"
       @open="setTouched"
+      @take="takePhoto"
     )
     el-select(
       v-if="element === 'select'"
@@ -129,6 +130,11 @@ export default {
     },
     onSelect (item) {
       this.$emit('select', item)
+    },
+    takePhoto () {
+      this.setTouched()
+
+      this.$emit('take')
     }
   },
   mounted () {

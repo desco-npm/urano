@@ -1,11 +1,15 @@
 <template lang="pug">
   div
     input(ref="input" type="file" @change="select")
-    div.img(v-if="data")
+    el-dropdown.full(trigger="click" :hide-on-click="true")
+      el-button.full.bg-primary.text-white(split-button :icon="attrs.icon || 'el-icon-picture'")
+        | Selecionar imagem
+        i.el-icon-arrow-down.el-icon--right
+      el-dropdown-menu(slot="dropdown")
+        el-dropdown-item(@click.native="takePhoto") A partir da câmera
+        el-dropdown-item(@click.native="open") A partir da galeria
+    div.img.full(v-if="data")
       img(:src="data")
-    el-button.full.bg-primary.text-white(@click.native="open")
-      span(v-if="!data") Selecionar imagem
-      span(v-if="data") Trocar imagem
 </template>
 
 <script>
@@ -18,6 +22,14 @@
     ],
     props: {
       value: String,
+      params: { type: Object, default: () => ({}) },
+    },
+    computed: {
+      attrs () {
+        const attrs = this.params
+
+        return attrs
+      },
     },
     data () {
       return {
@@ -32,6 +44,9 @@
       async select (e) {
         this.data = (await fileBase64(e))[0]
       },
+      async takePhoto (e) {
+        this.$emit('take')
+      },
     },
   }
 </script>
@@ -43,10 +58,11 @@
 
   .img {
     text-align: center;
+    margin-top: 12px;
 
     img {
       max-width: 100%;
-      max-height: 200px;
+      max-height: 350px;
     }
   }
 </style>
