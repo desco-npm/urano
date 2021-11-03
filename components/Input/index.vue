@@ -44,6 +44,7 @@
     ur-image-upload(
       v-if="element === 'imageupload'"
       v-model="data"
+      :params="attrs"
       @open="setTouched"
       @take="takePhoto"
     )

@@ -2,10 +2,10 @@
   div
     input(ref="input" type="file" @change="select")
     el-dropdown.full(trigger="click" :hide-on-click="true")
-      el-button.full.bg-primary.text-white(split-button :icon="attrs.icon || 'el-icon-picture'")
+      el-button.full.bg-primary.text-white(split-button :icon="attrs.icon || 'el-icon-picture'" @click="click")
         | Selecionar imagem
-        i.el-icon-arrow-down.el-icon--right
-      el-dropdown-menu(slot="dropdown")
+        i.el-icon-arrow-down.el-icon--right(v-if="gallery && camera")
+      el-dropdown-menu(slot="dropdown" v-if="gallery && camera")
         el-dropdown-item(@click.native="takePhoto") A partir da câmera
         el-dropdown-item(@click.native="open") A partir da galeria
     div.img.full(v-if="data")
@@ -30,6 +30,12 @@
 
         return attrs
       },
+      camera () {
+        return [ undefined, true, ].indexOf(this.params.camera) > -1
+      },
+      gallery () {
+        return [ undefined, true, ].indexOf(this.params.gallery) > -1
+      },
     },
     data () {
       return {
@@ -46,6 +52,14 @@
       },
       async takePhoto (e) {
         this.$emit('take')
+      },
+      click () {
+        if (this.gallery && !this.camera) {
+          this.open()
+        }
+        else if (this.gallery && !this.camera) {
+          this.takePhoto()
+        }
       },
     },
   }
