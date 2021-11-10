@@ -1,3 +1,5 @@
+const dataWatchPositionGPS = {}
+
 export default {
   methods: {
     getPositionGPS (options = {}) {
@@ -9,7 +11,19 @@ export default {
       })
     },
     watchPositionGPS (onSuccess, onError = () => {}, params = {}) {
-      navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 60000, ...params, })
+      return navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 60000, ...params, })
+    },
+    clearWatchPositionGPS (id) {
+      navigator.geolocation.clearWatch(id)
+    },
+    async suspendWatchPositionGPSWhile (id, fun) {
+      const { onSuccess, onError, params, } = dataWatchPositionGPS[id]
+
+      this.clearWatch(id)
+
+      await fun()
+
+      this.watchPositionGPS(onSuccess, onError, params)
     }
   },
 }
