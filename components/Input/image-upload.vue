@@ -13,7 +13,8 @@
 </template>
 
 <script>
-  import fileBase64 from '@desco/urano/functions/fileBase64'
+  import Compressor from '@desco/urano/lib/compressorjs'
+  import BlobUtil from '@desco/urano/lib/blob-util'
 
   export default {
     name: 'ur-image-upload',
@@ -48,7 +49,16 @@
         this.$emit('open')
       },
       async select (e) {
-        this.data = (await fileBase64(e))[0]
+        new Compressor(e.target.files[0], {
+          ...this.attrs.galleryCompressor,
+          quality: (this.attrs.galleryCompressor || {}).quality || 0.3,
+          success: async(result) => {
+            this.data = `data:${result.type};base64,${await BlobUtil.blobToBase64String(result)}`
+          },
+          error(err) {
+            console.log(err)
+          },
+        })
       },
       async takePhoto (e) {
         this.$emit('take')
