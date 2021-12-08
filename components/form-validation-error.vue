@@ -1,33 +1,42 @@
 <template lang="pug">
-div
-  span(v-if="show && field.required === false")
-    span(v-if="getCustomMessage('required')") {{getCustomMessage('required')}}
-    span(v-else) Campo obrigatório
+  div
+    span(v-if="show && field.required === false")
+      span(v-if="getCustomMessage('required')") {{getCustomMessage('required')}}
+      span(v-else) Campo obrigatório
 
-  span(v-if="show && field.maxLength === false")
-    span(v-if="getCustomMessage('maxLength')") {{getCustomMessage('maxLength')}}
-    span(v-else) Campo deve ter menos de {{ field.$params.maxLength.max }} caracteres
+    span(v-if="show && field.maxLength === false")
+      span(v-if="getCustomMessage('maxLength')") {{getCustomMessage('maxLength')}}
+      span(v-else) Campo deve ter menos de {{ field.$params.maxLength.max }} caracteres
 
-  span(v-if="show && field.minLength === false")
-    span(v-if="getCustomMessage('minLength')") {{getCustomMessage('minLength')}}
-    span(v-else) Campo deve ao menos {{ field.$params.minLength.min }} caracteres
+    span(v-if="show && field.minLength === false")
+      span(v-if="getCustomMessage('minLength')") {{getCustomMessage('minLength')}}
+      span(v-else) Campo deve ao menos {{ field.$params.minLength.min }} caracteres
 
-  span(v-if="show && field.email === false")
-    span(v-if="getCustomMessage('email')") {{getCustomMessage('email')}}
-    span(v-else) Este não é um e-mail válido
+    span(v-if="show && field.email === false")
+      span(v-if="getCustomMessage('email')") {{getCustomMessage('email')}}
+      span(v-else) Este não é um e-mail válido
 
-  span(v-if="show && field.sameAs === false")
-    span(v-if="getCustomMessage('sameAs')") {{getCustomMessage('sameAs')}}
-    span(v-else) 
-    | Não corresponde com o campo&nbsp;
-    b {{ service.model()[field.$params.sameAs.eq].label }}
+    span(v-if="show && field.sameAs === false")
+      span(v-if="getCustomMessage('sameAs')") {{getCustomMessage('sameAs')}}
+      span(v-else) 
+      | Não corresponde com o campo&nbsp;
+      b {{ service.model()[field.$params.sameAs.eq].label }}
 
-  span(v-if="show && field.passwordStrength === false")
-    span(v-if="getCustomMessage('passwordStrength')") {{getCustomMessage('passwordStrength')}}
-    span(v-else) 
-    | A senha atual é muito fraca!
-    |({{field.$params.passwordStrength.strong || 0}}/{{field.$params.passwordStrength.required}})
+    span(v-if="show && field.passwordStrength === false")
+      span(v-if="getCustomMessage('passwordStrength')") {{getCustomMessage('passwordStrength')}}
+      span(v-else) 
+      | A senha atual é muito fraca!
+      |({{field.$params.passwordStrength.strong || 0}}/{{field.$params.passwordStrength.required}})
 
+    span(v-if="show && field.between === false")
+      span(v-if="getCustomMessage('between')") {{getCustomMessage('between')}}
+      span(v-else) 
+      | Valor do campo deve estar entre 
+      |{{field.$params.between.max}} e {{field.$params.between.min}}
+
+    span(v-if="show && field.url === false")
+      span(v-if="getCustomMessage('url')") {{getCustomMessage('url')}}
+      span(v-else) Não é uma URL válida!
 </template>
 
 <script>
@@ -41,13 +50,14 @@ export default {
     service: Object,
     dirty: Boolean,
     touched: Boolean,
+    showErrors: Boolean | String,
   },
   computed: {
     field() {
       return this.v[this.name] || {};
     },
     show () {
-      return this.dirty || this.touched
+      return this.showErrors !== 'never' && (this.showErrors || this.dirty || this.touched)
     },
   },
   methods: {

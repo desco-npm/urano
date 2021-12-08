@@ -1,4 +1,4 @@
-import Http from '@desco/urano/plugins/Http'
+import { getHttp, } from '@desco/urano/plugins/Http'
 import objectFilter from '@desco/urano/functions/objectFilter'
 
 class DefaultService {
@@ -10,49 +10,93 @@ class DefaultService {
     this.prefix = params.prefix || ''
     this.entity = params.entity
     this.pkName = params.pkName || 'id'
+    this.staticData = params.staticData
   }
 
   Http () {
-    return Http
+    return getHttp()
   }
 
-  read (id, params = {}) {
-    const url = `${this.prefix}${this.entity}/${id}`
+  read (id, params = {}, options = {}) {
+    if (this.isStatic()) {
+      return this.staticRead(id, params)
+    }
 
-    return Http.get(url, { params, }).then(resp => resp.data)
+    const url = this.mountUrl('{prefix}{entity}/{id}', options.url)
+
+    if (typeof id === 'object') {
+      const [ [ idProp, idValue, ], ] = Object.entries(id)
+
+      params[idProp] = idValue
+    }
+
+
+    return this.Http().get(url, { params, })
+      .then(resp => resp.data)
   }
 
-  list (params = {}) {
-    const url = `${this.prefix}${this.entity}`
+  staticRead (id, params) {
+    if (!this.isStatic()) return Promise.revolve(null)
 
-    return Http.get(url, { params, }).then(resp => resp.data)
+    return Promise.resolve(this.staticData.filter(i => i.Id === id)[0])
   }
 
-  save (data, params = {}) {
+  list (params = {}, options = {}) {
+    if (this.isStatic()) {
+      return this.staticList(params)
+    }
+
+    const url = this.mountUrl('{prefix}{entity}', options.url)
+
+    return this.Http().get(url, { params, })
+      .then(resp => resp.data)
+  }
+
+  staticList (params) {
+    if (!this.isStatic()) return Promise.revolve(null)
+
+    return Promise.resolve(this.staticData)
+  }
+
+  async save (data, params = {}, options = {}) {
     if (data[this.pkName]) {
-      return this.update(data, params)
+      try {
+        this.update(data, params, options)
+      }
+      catch(e) {
+        console.log(e)
+      }
+      return this.update(data, params, options)
     }
     else {
-      return this.create(data, params)
+      return this.create(data, params, options)
     }
   }
 
-  update (data, params = {}) {
-    const url = `${this.prefix}${this.entity}/${data[this.pkName]}`
+  update (data, params = {}, options = {}) {
+    if (this.isStatic()) return Promise.reject(null)
 
-    return Http.put(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
+    const url = this.mountUrl('{prefix}{entity}/{id}', options.url)
+
+    return this.Http().put(url, this.clean(data, params.clean), { params, })
+      .then(resp => resp.data)
   }
 
-  create (data, params = {}) {
-    const url = `${this.prefix}${this.entity}`
+  create (data, params = {}, options = {}) {
+    if (this.isStatic()) return Promise.reject(null)
 
-    return Http.post(url, this.clean(data, params.clean), { params, }).then(resp => resp.data)
+    const url = this.mountUrl('{prefix}{entity}', options.url)
+
+    return this.Http().post(url, this.clean(data, params.clean), { params, })
+      .then(resp => resp.data)
   }
 
-  delete (id) {
-    const url = `${this.prefix}${this.entity}/${id}`
+  delete (id, params = {}) {
+    if (this.staticData) return Promise.reject(null)
 
-    return Http.delete(url)
+    const url = this.mountUrl('{prefix}{entity}/{id}', options.url)
+
+    return this.Http().delete(url, { data: { Id: id, }, })
   }
 
   model () {
@@ -61,10 +105,21 @@ class DefaultService {
     return {}
   }
 
-  clean(data, list) {
+  clean (data, list) {
     if (!list) return data
 
     return objectFilter(data, (v, k) => list.indexOf(k) === -1)
+  }
+
+  mountUrl (nativeUrl, url, params = {}) {
+    return (url || nativeUrl)
+      .replace('{prefix}', this.prefix)
+      .replace('{entity}', this.entity)
+      .replace('{id}', params.id)
+  }
+
+  isStatic () {
+    return !!this.staticData
   }
 }
 

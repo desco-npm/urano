@@ -16,7 +16,7 @@ export default {
   name: 'ur-autocomplete',
   mixins: [
     require('@desco/urano/mixins/watch/model').default,
-    require('@desco/urano/components/input/inputMixin').default,
+    require('@desco/urano/components/Input/inputMixin').default,
   ],
   props: {
     value: String,

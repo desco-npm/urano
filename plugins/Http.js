@@ -29,4 +29,8 @@ export function setTimeout (time) {
   Http.defaults.timeout = time
 }
 
+export function getHttp () {
+  return Http
+}
+
 export default Http
