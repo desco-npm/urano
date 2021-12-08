@@ -10,6 +10,7 @@
         :placeholder="attrs.placeholder"
         :maxlength="maxLength"
         :show-word-limit="attrs.showWordLimit"
+        v-mask="attrs.mask"
         @blur="setTouched"
       )
       ur-password(
@@ -140,80 +141,80 @@
 </template>
 
 <script>
-export default {
-  name: 'ur-input',
-  mixins: [
-    require('./inputMixin').default,
-  ],
-  components: {
-    'ur-image-upload': require('./image-upload').default,
-    'ur-password': require('./password').default,
-    'ur-icon-picker': require('./icon-picker').default,
-    'ur-editor': require('./editor').default,
-    'ur-autocomplete': require('./autocomplete').default,
-    'ur-number': require('./number').default,
-    'ur-form-validation-error': require('../form-validation-error').default,
-    'desco-input-tags': require('@desco/vue-input-tags').default,
+  export default {
+    name: 'ur-input',
+    mixins: [
+      require('./inputMixin').default,
+    ],
+    components: {
+      'ur-image-upload': require('./image-upload').default,
+      'ur-password': require('./password').default,
+      'ur-icon-picker': require('./icon-picker').default,
+      'ur-editor': require('./editor').default,
+      'ur-autocomplete': require('./autocomplete').default,
+      'ur-number': require('./number').default,
+      'ur-form-validation-error': require('../form-validation-error').default,
+      'desco-input-tags': require('@desco/vue-input-tags').default,
 
-  },
-  data () {
-    return {
-      dirty: false,
-      touched: false,
-    }
-  },
-  computed: {
-    maxLength () {
-      if (!this.validation) return undefined
-
-      return((this.validation[this.name].$params || {}).maxLength || {}).max
-    }
-  },
-  methods: {
-    onQuerySearch (query, cb) {
-      this.$emit('fetch-suggestions', query, cb)
     },
-    onSelect (item) {
-      this.$emit('select', item)
-    },
-    takePhoto () {
-      this.setTouched()
-
-      this.$emit('take')
-    },
-  },
-  mounted () {
-    if(typeof this.attrs.default !== 'undefined') {
-      this.data = this.attrs.default
-    }
-
-    this.dirty = null
-    this.touched = null
-
-    switch (this.element) {
-      case 'select': {
-        this.attrs.remoteMethod()
+    data () {
+      return {
+        dirty: false,
+        touched: false,
       }
-        break
-      case 'switch': {
-        this.data = Boolean(this.data)
-      }
-        break
-    }
-  },
-  watch: {
-    data: {
-      deep: true,
-      handler () {
-        this.dirty = this.dirty === null ? false : true
+    },
+    computed: {
+      maxLength () {
+        if (!this.validation) return undefined
 
-        if (this.dirty) {
-          this.$emit('dirty')
+        return((this.validation[this.name].$params || {}).maxLength || {}).max
+      }
+    },
+    methods: {
+      onQuerySearch (query, cb) {
+        this.$emit('fetch-suggestions', query, cb)
+      },
+      onSelect (item) {
+        this.$emit('select', item)
+      },
+      takePhoto () {
+        this.setTouched()
+
+        this.$emit('take')
+      },
+    },
+    mounted () {
+      if(typeof this.attrs.default !== 'undefined') {
+        this.data = this.attrs.default
+      }
+
+      this.dirty = null
+      this.touched = null
+
+      switch (this.element) {
+        case 'select': {
+          this.attrs.remoteMethod()
+        }
+          break
+        case 'switch': {
+          this.data = Boolean(this.data)
+        }
+          break
+      }
+    },
+    watch: {
+      data: {
+        deep: true,
+        handler () {
+          this.dirty = this.dirty === null ? false : true
+
+          if (this.dirty) {
+            this.$emit('dirty')
+          }
         }
       }
     }
-  }
-};
+  };
 </script>
 
 <style lang="scss">
