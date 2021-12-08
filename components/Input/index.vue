@@ -10,6 +10,7 @@
         :placeholder="attrs.placeholder"
         :maxlength="maxLength"
         :show-word-limit="attrs.showWordLimit"
+        :disabled="attrs.disabled"
         v-mask="attrs.mask"
         @blur="setTouched"
       )
@@ -26,6 +27,7 @@
         :placeholder="attrs.placeholder"
         :maxlength="maxLength"
         :show-word-limit="attrs.showWordLimit"
+        :disabled="attrs.disabled"
         @blur="setTouched"
       )
       el-input(
@@ -36,6 +38,7 @@
         :rows="attrs.rows"
         :maxlength="maxLength"
         :show-word-limit="attrs.showWordLimit"
+        :disabled="attrs.disabled"
         @blur="setTouched"
       )
       el-date-picker(
@@ -44,6 +47,7 @@
         v-model="data"
         :placeholder="attrs.placeholder"
         :format="attrs.format || 'dd/MM/yyyy'"
+        :disabled="attrs.disabled"
         @blur="setTouched"
       )
       ur-editor(
@@ -79,6 +83,7 @@
         @blur="setTouched"
       )
         el-option(
+          v-if="!attrs.groups"
           v-for="item in attrs.options"
           :key="item[attrs.valueProp || 'value']"
           :label="item[attrs.labelProp || 'label']"
@@ -86,6 +91,20 @@
           :disabled="item.disabled"
         )
           slot(name="select" v-bind:item="item")
+        el-option-group(
+          v-if="attrs.groups"
+          v-for="(options, group) in attrs.groups"
+          :key="group"
+          :label="group"
+        )
+          el-option(
+            v-for="item in options"
+            :key="item[attrs.valueProp || 'value']"
+            :label="item[attrs.labelProp || 'label']"
+            :value="item"
+            :disabled="item.disabled"
+          )
+            slot(name="select" v-bind:item="item")
       el-switch(
         v-if="element === 'switch'"
         v-model="data"

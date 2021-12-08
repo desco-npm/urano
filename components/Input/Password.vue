@@ -6,6 +6,7 @@
         :type="show ? 'text' : 'password'"
         v-model="data"
         :placeholder="attrs.placeholder"
+        :disabled="attrs.disabled"
         @blur="onBlur"
       )
       q-icon(:name="show ? 'fas fa-eye' : 'fas fa-eye-slash'" @click="toogleShow")

@@ -5,6 +5,7 @@
         v-model="toDisplay"
         :placeholder="attrs.placeholder"
         :show-word-limit="attrs.showWordLimit"
+        :disabled="attrs.disabled"
         @blur="onBlur"
       )
         template(slot="append" v-if="attrs.percent") %
