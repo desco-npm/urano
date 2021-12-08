@@ -41,6 +41,7 @@
         this.$emit('blur')
       },
       onKeyup (event) {
+
         const key = event.key
         const precision = this.attrs.precision || 0
         let integer = null
@@ -141,8 +142,6 @@
         if (!this.value) return
 
         this.data = this.value.toString()
-
-        this.formatToDisplay()
       },
     },
   }
