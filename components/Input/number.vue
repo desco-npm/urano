@@ -9,6 +9,9 @@
         @blur="onBlur"
       )
         template(slot="append" v-if="attrs.percent") %
+        template(slot="append" v-if="attrs.append") {{attrs.append}}
+        template(slot="prepend" v-if="attrs.money") R$
+        template(slot="prepend" v-if="attrs.prepend") {{attrs.prepend}}
 </template>
 
 <script>

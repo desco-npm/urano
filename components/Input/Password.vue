@@ -9,6 +9,8 @@
         :disabled="attrs.disabled"
         @blur="onBlur"
       )
+        template(slot="prepend" v-if="attrs.prepend") {{attrs.prepend}}
+        template(slot="append" v-if="attrs.append") {{attrs.append}}
       q-icon(:name="show ? 'fas fa-eye' : 'fas fa-eye-slash'" @click="toogleShow")
     .row.strength.q-gutter-xs
       .col( v-for="i in params.strengthRequired" :key="i" :class="{ valid: params.strength >= i}")

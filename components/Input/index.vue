@@ -14,6 +14,8 @@
         v-mask="attrs.mask"
         @blur="setTouched"
       )
+        template(slot="prepend" v-if="attrs.prepend") {{attrs.prepend}}
+        template(slot="append" v-if="attrs.append") {{attrs.append}}
       ur-password(
         v-if="element === 'password'"
         v-model="data"
@@ -30,6 +32,8 @@
         :disabled="attrs.disabled"
         @blur="setTouched"
       )
+        template(slot="prepend" v-if="attrs.prepend") {{attrs.prepend}}
+        template(slot="append" v-if="attrs.append") {{attrs.append}}
       el-input(
         v-if="element === 'text'"
         type="textarea"
