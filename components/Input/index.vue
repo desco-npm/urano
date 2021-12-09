@@ -67,48 +67,15 @@
         @open="setTouched"
         @take="takePhoto"
       )
-      el-select(
+      ur-select(
         v-if="element === 'select'"
         v-model="data"
-        :placeholder="attrs.placeholder"
-        :disabled="attrs.disabled"
-        :clearable ="attrs.clearable"
-        :multiple="attrs.multiple"
-        :collapse-tags="attrs.collapseTags"
-        :filterable="attrs.filterable"
-        :filter-method="attrs.filterMethod"
-        :remote="attrs.remote"
-        :remote-method="attrs.remoteMethod"
-        :allow-create="attrs.allowCreate"
-        :default-first-option="attrs.defaultFirstOption"
-        :value-key="attrs.valueProp || 'value'"
-        :loading="attrs.loading"
-        :loading-text="attrs.loadingText"
+        :params="attrs"
         @blur="setTouched"
+        @change="onChange"
       )
-        el-option(
-          v-if="!attrs.groups"
-          v-for="item in attrs.options"
-          :key="item[attrs.valueProp || 'value']"
-          :label="item[attrs.labelProp || service.fieldName || 'Nome']"
-          :value="item"
-          :disabled="item.disabled"
-        )
+        template(v-slot:select="{ item, }")
           slot(name="select" v-bind:item="item")
-        el-option-group(
-          v-if="attrs.groups"
-          v-for="(options, group) in attrs.groups"
-          :key="group"
-          :label="group"
-        )
-          el-option(
-            v-for="item in options"
-            :key="item[attrs.valueProp || 'value']"
-            :label="item[attrs.labelProp || service.fieldName || 'Nome']"
-            :value="item"
-            :disabled="item.disabled"
-          )
-            slot(name="select" v-bind:item="item")
       el-switch(
         v-if="element === 'switch'"
         v-model="data"
@@ -172,13 +139,13 @@
     components: {
       'ur-image-upload': require('./image-upload').default,
       'ur-password': require('./password').default,
+      'ur-select': require('./select').default,
       'ur-icon-picker': require('./icon-picker').default,
       'ur-editor': require('./editor').default,
       'ur-autocomplete': require('./autocomplete').default,
       'ur-number': require('./number').default,
       'ur-form-validation-error': require('../form-validation-error').default,
       'desco-input-tags': require('@desco/vue-input-tags').default,
-
     },
     data () {
       return {
@@ -205,6 +172,9 @@
 
         this.$emit('take')
       },
+      onChange (data) {
+        this.$emit('change', data)
+      }
     },
     mounted () {
       if(typeof this.attrs.default !== 'undefined') {

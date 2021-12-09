@@ -21,9 +21,7 @@
     name: 'ur-number',
     props: {
       value: Number,
-      name: String,
       params: { type: Object, default: () => ({}) },
-      maxlength: { type: Number, required: false, default: 0 },
     },
     data () {
       return {
