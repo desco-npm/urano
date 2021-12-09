@@ -90,7 +90,7 @@
           v-if="!attrs.groups"
           v-for="item in attrs.options"
           :key="item[attrs.valueProp || 'value']"
-          :label="item[attrs.labelProp || 'label']"
+          :label="item[attrs.labelProp || service.fieldName || 'Nome']"
           :value="item"
           :disabled="item.disabled"
         )
@@ -104,7 +104,7 @@
           el-option(
             v-for="item in options"
             :key="item[attrs.valueProp || 'value']"
-            :label="item[attrs.labelProp || 'label']"
+            :label="item[attrs.labelProp || service.fieldName || 'Nome']"
             :value="item"
             :disabled="item.disabled"
           )

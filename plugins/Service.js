@@ -91,7 +91,7 @@ class DefaultService {
       .then(resp => resp.data)
   }
 
-  delete (id, params = {}) {
+  delete (id, options = {}) {
     if (this.staticData) return Promise.reject(null)
 
     const url = this.mountUrl('{prefix}{entity}/{id}', options.url)
