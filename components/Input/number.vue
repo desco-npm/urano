@@ -1,6 +1,6 @@
 <template lang="pug">
   .ur-number-input
-    span(@keyup="onKeyup")
+    span(@keyup="onKeyUp")
       el-input(
         v-model="toDisplay"
         :placeholder="attrs.placeholder"
@@ -21,7 +21,7 @@
     name: 'ur-number',
     props: {
       value: Number,
-      params: { type: Object, default: () => ({}) },
+      params: { type: Object, default: () => ({}), },
     },
     data () {
       return {
@@ -38,108 +38,74 @@
       onBlur () {
         this.$emit('blur')
       },
-      onKeyup (event) {
-
+      onKeyUp (event) {
         const key = event.key
-        const precision = this.attrs.precision || 0
-        let integer = null
-        let decimals = null
-        let point = '.'
-
-        this.data = this.cleanData()
-
-        if (key === 'Backspace') {
-          this.data = this.data.slice(0, -1)
-
-          this.formatToDisplay()
-
-          return
-        }
-        else if (isNaN(Number(key))) {
-          this.formatToDisplay()
-
-          return
-        }
-
-        this.data = !this.attrs.rightToLeft ? `${this.data}${key}` : `${key}${this.data}`
-
-        if (precision > 0 && this.data.length + 1 > precision) {
-          integer = this.data.slice(0, precision * -1)
-          decimals = this.data.slice(precision * -1)
-        }
-        else {
-          integer = this.data
-        }
-
-        if (this.params.mask) {
-          point = ','
-
-          integer = integer
-            .split('')
-            .reverse()
-            .map((i, k) => (k + 1) % 3 === 0 ? `.${i}` : i)
-            .reverse()
-            .join('')
-
-          if (integer[0] === '.') {
-            integer = integer.slice(1)
-          }
-        }
-
-        if (integer === '' && decimals) {
-          this.data = decimals.toString()
-        }
-        else if (integer !== '' && !decimals) {
-          this.data = integer.toString()
-        }
-        else if (integer && decimals) {
-          this.data = `${integer}${point}${decimals}`
-        }
 
         this.formatToDisplay()
       },
       formatToDisplay () {
-        if (!this.data) return
+        let toDisplay = this.toDisplay
 
-        this.toDisplay = this.data
+        toDisplay = this.clean(toDisplay)
+        toDisplay = this.formatInteger(toDisplay)
 
-        if (this.attrs.mask && this.attrs.precision > 0) {
-          const value = this.toDisplay.split(',')
-
-          let integer = ''
-          let decimals = ''
-
-          if ((value[0] || value[0] === '') && !value[1]) {
-            integer = '0'
-            decimals = value[0].padStart(this.attrs.precision, '0')
-          }
-          else {
-            integer = value[0]
-            decimals = value[1].padStart(this.attrs.precision, '0')
-          }
-
-          this.toDisplay = `${integer},${decimals}`
-        }
+        this.toDisplay = toDisplay
       },
-      cleanData (comma) {
-        return this.data
-          .toString()
+      formatInteger (value) {
+        if (!this.attrs.mask) return value
+
+        let integer = value.slice(0, this.attrs.precision * -1)
+        let decimals = value.slice(this.attrs.precision * -1)
+
+        integer = integer
           .split('')
-          .filter((i) => !isNaN(Number(i)) || (i === ',' && comma))
-          .map((i) => i === ',' ? '.' : i)
+          .reverse()
+          .map((i, k) => (k + 1) % 3 === 0 ? `.${i}` : i)
+          .reverse()
           .join('')
+
+        if (integer[0] === '.') {
+          integer = integer.slice(1)
+        }
+        else if (integer['0'] === '0' && integer.length > 1) {
+          integer = integer.slice(1)
+        }
+
+        if (this.attrs.precision > 0) {
+          integer = integer.padStart(1, '0')
+          decimals = decimals.padStart(this.attrs.precision, '0')
+
+          return `${integer},${decimals}`
+        }
+        else {
+          return integer
+        }
+
       },
+      clean (val) {
+        return val
+          .split('')
+          .filter((i) => !isNaN(Number(i)))
+          .join('')
+      }
+    },
+    mounted () {
+      this.formatToDisplay()
     },
     watch: {
+      toDisplay () {
+        this.data = Number(this.toDisplay.split('.').join('').split(',').join('.'))
+      },
       data () {
-        const val = this.toDisplay.split('.').join('').split(',').join('.')
-
-        this.$emit('input', Number(val))
+        this.$emit('input', this.data)
       },
       value () {
         if (!this.value) return
 
-        this.data = this.value.toString()
+        this.data = this.value
+        this.toDisplay = this.value.toString()
+
+        this.formatToDisplay()
       },
     },
   }
