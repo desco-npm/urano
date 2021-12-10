@@ -22,14 +22,13 @@ class DefaultService {
       return this.staticRead(id, params)
     }
 
-    const url = this.mountUrl('{prefix}{entity}/{id}', options.url)
+    const url = this.mountUrl('{prefix}{entity}/{id}', options.url, { id, })
 
     if (typeof id === 'object') {
       const [ [ idProp, idValue, ], ] = Object.entries(id)
 
       params[idProp] = idValue
     }
-
 
     return this.Http().get(url, { params, })
       .then(resp => resp.data)

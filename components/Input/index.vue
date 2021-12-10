@@ -156,8 +156,11 @@
     computed: {
       maxLength () {
         if (!this.validation) return undefined
+        if (!this.validation[this.name]) return undefined
+        if (!this.validation[this.name].$params) return undefined
+        if (!this.validation[this.name].$params.maxLength) return undefined
 
-        return((this.validation[this.name].$params || {}).maxLength || {}).max
+        return this.validation[this.name].$params.maxLength.max
       }
     },
     methods: {
