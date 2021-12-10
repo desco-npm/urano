@@ -15,8 +15,6 @@
 </template>
 
 <script>
-  import form from '~/mixins/form'
-
   export default {
     name: 'ur-number',
     props: {
