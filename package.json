@@ -38,6 +38,7 @@
     "object.map": "^1.0.1",
     "percent-value": "^1.0.9",
     "quasar": "^1.0.0",
+    "v-mask": "^2.3.0",
     "vue-echarts-v3": "^2.0.1",
     "vue-googlemaps": "^0.1.2",
     "vue-resize": "^1.0.0",
