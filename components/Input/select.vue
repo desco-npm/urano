@@ -59,6 +59,8 @@
     },
     methods: {
       fetch () {
+        this.data = this.value
+
         if (this.attrs.defaultFirstOption && !this.data) {
           this.data = this.attrs.options[0]
 
